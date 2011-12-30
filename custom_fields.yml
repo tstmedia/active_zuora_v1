@@ -1,17 +1,17 @@
 Account:
-  ScreenName
-  Locale
+  - ScreenName
+  - Locale
 Subscription:
-  AppID
-  Subdomain
+  - AppID
+  - Subdomain
 Product:
-  NumInstances
-  InclusionList
-  AvailabilityList
-  ProductType
+  - NumInstances
+  - InclusionList
+  - AvailabilityList
+  - ProductType
 ProductRatePlan:
-  NumInstances
-  Slug
-  NextSlug
-  Duration
-  Trial
+  - NumInstances
+  - Slug
+  - NextSlug
+  - Duration
+  - Trial

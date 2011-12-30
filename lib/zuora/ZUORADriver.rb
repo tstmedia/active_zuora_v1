@@ -85,11 +85,11 @@ class Soap < ::SOAP::RPC::Driver
  def do_init(custom_fields)
 
    if custom_fields
-     custom_fields.each do |key, value|
-       fields = value.strip.split(/\s+/).map { |e| "#{e}__c" }
-       type_class = Object.const_get('ZUORA').const_get(key)
+     custom_fields.each do |zobject, field_names|
+       fields = field_names.map { |e| "#{e.strip}__c" }
+       type_class = Object.const_get('ZUORA').const_get(zobject)
 
-       product_definition = self.literal_mapping_registry.schema_definition_from_class(type_class)        
+       product_definition = self.literal_mapping_registry.schema_definition_from_class(type_class)
 
        fields.each do |field|
          field_uncapitalize = field.gsub(/^\w/) { |i| i.downcase }
