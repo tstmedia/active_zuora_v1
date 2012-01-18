@@ -1,0 +1,13 @@
+require 'delegate'
+require 'zuora_client'
+require 'zuora/zobject'
+require 'zuora/account'
+require 'zuora/contact'
+require 'zuora/rate_plan'
+require 'zuora/rate_plan_data'
+require 'zuora/subscribe_options'
+require 'zuora/subscribe_request'
+require 'zuora/subscribe_with_existing_account_request'
+require 'zuora/subscription'
+require 'zuora/subscription_data'
+

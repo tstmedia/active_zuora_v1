@@ -7,6 +7,15 @@ module ZUORA
 #   fieldsToNull - SOAP::SOAPString
 #   id - (any)
 class ZObject
+  #BEGIN BASTARDIZING CORE RUBY
+  class << self; alias_method :attr_accessor_without_attributes, :attr_accessor; end
+  def self.attr_accessor(*attrs)
+    @attributes ||= []
+    @attributes.push *attrs
+    attr_accessor_without_attributes *attrs
+  end
+  #END BASTARDIZATION
+
   attr_accessor :fieldsToNull
   attr_accessor :id
 
@@ -309,7 +318,7 @@ class InvoiceItemAdjustment < ZObject
   attr_accessor :type
   attr_accessor :sourceType
   attr_accessor :adjustmentDate
-  
+
   def initialize(fieldsToNull = [], id = nil, accountId = nil, amount = nil, sourceId = nil, invoiceId = nil, type = nil, sourceType = nil, adjustmentDate = nil)
     @fieldsToNull = fieldsToNull
     @id = id
@@ -322,7 +331,7 @@ class InvoiceItemAdjustment < ZObject
     @adjustmentDate = adjustmentDate
   end
 end
-  
+
   class BillRun < ZObject
     attr_accessor :fieldsToNull
     attr_accessor :id

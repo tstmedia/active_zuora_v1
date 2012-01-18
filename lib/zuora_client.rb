@@ -42,134 +42,140 @@ class SOAP::Header::HandlerSet
   end
 end
 
-class ZuoraClient
+module Zuora
+  class Client
+    PROD_URL = 'https://www.zuora.com/apps/services/a/36.0'
+    SANDBOX_URL = 'https://apisandbox.zuora.com/apps/services/a/36.0'
 
-  PROD_URL = 'https://www.zuora.com/apps/services/a/27.0'
-  SANDBOX_URL = 'https://apisandbox.zuora.com/apps/services/a/27.0'
-
-  def self.parse_custom_fields
-     if self.custom_fields
-       self.custom_fields.each do |zobject, field_names|
-         fields = field_names.map { |e| "#{e.strip}__c" }
-         type_class = Object.const_get('ZUORA').const_get(zobject)
-         fields.each do |field|
-           custom_field = field.gsub(/^\w/) { |i| i.downcase }
-           type_class.send :attr_accessor, custom_field
-         end
-       end
-     end
-     custom_fields
-  end
-
-  def self.custom_fields
-    @custom_fields = YAML.load_file(File.dirname(__FILE__) + '/../custom_fields.yml')
-  end
-
-  def initialize(username, password, url=PROD_URL)
-    $ZUORA_USER = username
-    $ZUORA_PASSWORD = password
-    $ZUORA_ENDPOINT = url
-
-    @client = ZuoraInterface.new
-
-    # add custom fields, if any
-    custom_fields = ZuoraClient.parse_custom_fields
-    @client.session_start(custom_fields)
-  end
-
-  def query(query_string)
-
-    query_string =~ /select\s+(.+)\s+from/i
-    fields = ($1.split /,\s+/).map do |f|
-      f.gsub!(/\b\w/) { $&.downcase }
+    def self.config
+      return @config_hash if @config_hash
+      @config_hash = YAML.load_file(Zuora::CONFIG_FILE) if File.exist?(Zuora::CONFIG_FILE)
+      @config_hash ||= {}
     end
 
-    begin
-      response = @client.query(query_string)
-    rescue Exception => e
-      puts e.message
+    def self.parse_custom_fields
+      if self.custom_fields
+        self.custom_fields.each do |zobject, field_names|
+          fields = field_names.map { |e| "#{e.strip}__c" }
+          type_class = Object.const_get('ZUORA').const_get(zobject)
+          fields.each do |field|
+            custom_field = field.gsub(/^\w/) { |i| i.downcase }
+            type_class.send :attr_accessor, custom_field
+          end
+        end
+      end
+      custom_fields
     end
 
-    result = []
-    if response && response.result && response.result.size > 0
-      response.result.records.each do |record|
-        row = {}
-        fields.each do |f|
-          row[f] = record.send(f)
+    def self.custom_fields
+      @custom_fields = YAML.load_file(File.dirname(__FILE__) + '/../custom_fields.yml')
+    end
+
+    def initialize(url=SANDBOX_URL)
+      $ZUORA_USER = self.class.config["username"]
+      $ZUORA_PASSWORD = self.class.config["password"]
+      $ZUORA_ENDPOINT = url
+
+      @client = ZuoraInterface.new
+
+      # add custom fields, if any
+      custom_fields = self.class.parse_custom_fields
+      @client.session_start(custom_fields)
+    end
+
+    def query(query_string)
+
+      query_string =~ /select\s+(.+)\s+from/i
+      fields = ($1.split /,\s+/).map do |f|
+        f.gsub!(/\b\w/) { $&.downcase }
+      end
+
+      begin
+        response = @client.query(query_string)
+      rescue Exception => e
+        puts e.message
+      end
+
+      result = []
+      if response && response.result && response.result.size > 0
+        response.result.records.each do |record|
+          row = {}
+          fields.each do |f|
+            row[f] = record.send(f)
+          end
+          result << row
+        end
+      end
+      result
+    end
+
+    def subscribe(obj)
+      begin
+        response = @client.subscribe(obj)
+        return response
+      rescue Exception => e
+        puts e.message
+      end
+    end
+
+    def create(obj)
+      begin
+        response = @client.create(obj)
+        result = save_results_to_hash(response)
+      rescue Exception => e
+        puts e.message
+      end
+      result || []
+    end
+
+    def generate(obj)
+      begin
+        response = @client.generate(obj)
+        result = save_results_to_hash(response)
+      rescue Exception => e
+        puts e.message
+      end
+      result || []
+    end
+
+    def update(obj)
+      begin
+        response = @client.update(obj)
+        result = save_results_to_hash(response)
+      rescue Exception => e
+        puts e.message
+      end
+      result || []
+    end
+
+    def delete(type, ids)
+      begin
+        response = @client.delete(type, ids)
+        result = save_results_to_hash(response)
+      rescue Exception => e
+        puts e.message
+      end
+      result || []
+    end
+
+    private
+
+    def save_results_to_hash(save_results)
+      result = []
+      save_results.each do |record|
+        row = {:success => record.success}
+        if record.success
+          row[:id] = record.id
+        else
+          row[:errors] = []
+          record.errors.each do |error|
+            row[:errors] << {:message => error.message, :code => error.code}
+          end
         end
         result << row
       end
-    end
-    result
-  end
-
-  def subscribe(obj)
-    begin
-      response = @client.subscribe(obj)
-      return response
-    rescue Exception => e
-      puts e.message
+      result
     end
   end
-
-  def create(obj)
-    begin
-      response = @client.create(obj)
-      result = save_results_to_hash(response)
-    rescue Exception => e
-      puts e.message
-    end
-    result || []
-  end
-
-  def generate(obj)
-    begin
-      response = @client.generate(obj)
-      result = save_results_to_hash(response)
-    rescue Exception => e
-      puts e.message
-    end
-    result || []
-  end
-
-  def update(obj)
-    begin
-      response = @client.update(obj)
-      result = save_results_to_hash(response)
-    rescue Exception => e
-      puts e.message
-    end
-    result || []
-  end
-
-  def delete(type, ids)
-    begin
-      response = @client.delete(type, ids)
-      result = save_results_to_hash(response)
-    rescue Exception => e
-      puts e.message
-    end
-    result || []
-  end
-
-  private
-
-  def save_results_to_hash(save_results)
-    result = []
-    save_results.each do |record|
-      row = {:success => record.success}
-      if record.success
-        row[:id] = record.id
-      else
-        row[:errors] = []
-        record.errors.each do |error|
-          row[:errors] << {:message => error.message, :code => error.code}
-        end
-      end
-      result << row
-    end
-    result
-  end
-
 
 end
