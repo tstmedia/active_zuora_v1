@@ -23,11 +23,16 @@ module Zuora
       @attribute_names ||= zobject_class.instance_variable_get("@attributes").reject{|name| name == :fieldsToNull }
     end
 
-    #Define dynamic Finders
-    def self.method_missing(sym, *args, &block)
-      return super(sym, *args, &block) unless match = sym.to_s.match(/^find_by_(\w+)$/)
-      zobject = self.client.query("select #{self.attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{match[1]} = '#{args[0]}'").first
-      self.new zobject if zobject
+    def self.where(conditions={})
+      zobjects = self.client.query("select #{self.attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}")
+      zobjects.map{|zobject| self.new zobject }
+    end
+
+    def self.build_filter_statments(filter_statments)
+      filter_statments.map{|key, value|
+        value = "'#{value}'" if value.kind_of?(String)
+        "#{key} = #{value}"
+      }.join(" and ")
     end
 
     def self.find(id)
