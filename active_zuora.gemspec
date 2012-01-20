@@ -4,15 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{zuora4r}
-  s.version = "1.1.1"
+  s.name = "active_zuora"
+  s.version = "1.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Cloocher"]
-  s.date = %q{2011-04-26}
-  s.description = %q{A client for Zuora API}
-  s.email = %q{gene@ning.com}
-  s.executables = ["zuora-query", "zuora-create", "zuora-update", "zuora-bill-run", "zuora-payment-run", "zuora-delete", "zq"]
+  s.authors = ["anfleene"]
+  s.date = "2012-01-20"
+  s.description = "A client for Zuora API"
+  s.email = "anfleene@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -20,35 +19,34 @@ Gem::Specification.new do |s|
   s.files = [
     "Rakefile",
     "VERSION",
-    "bin/zq",
-    "bin/zuora-bill-run",
-    "bin/zuora-create",
-    "bin/zuora-delete",
-    "bin/zuora-payment-run",
-    "bin/zuora-query",
-    "bin/zuora-update",
+    "active_zuora.gemspec",
     "custom_fields.yml",
+    "lib/active_zuora.rb",
     "lib/zuora/ZUORA.rb",
     "lib/zuora/ZUORADriver.rb",
     "lib/zuora/ZUORAMappingRegistry.rb",
     "lib/zuora/ZuoraServiceClient.rb",
+    "lib/zuora/account.rb",
     "lib/zuora/api.rb",
+    "lib/zuora/contact.rb",
+    "lib/zuora/rate_plan.rb",
+    "lib/zuora/rate_plan_data.rb",
+    "lib/zuora/subscribe_options.rb",
+    "lib/zuora/subscribe_request.rb",
+    "lib/zuora/subscribe_with_existing_account_request.rb",
+    "lib/zuora/subscription.rb",
+    "lib/zuora/subscription_data.rb",
+    "lib/zuora/zobject.rb",
     "lib/zuora_client.rb",
-    "lib/zuora_interface.rb",
-    "zuora4r.gemspec"
+    "lib/zuora_interface.rb"
   ]
-  s.homepage = %q{http://github.com/cloocher/zuora4r}
+  s.homepage = "http://github.com/anfleene/active_zuora"
   s.require_paths = ["lib"]
   s.requirements = ["none"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Zuora4r}
-  s.test_files = [
-    "test/helper.rb",
-    "test/test_zuora_client.rb"
-  ]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Active Zuora"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
