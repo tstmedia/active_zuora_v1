@@ -11,5 +11,5 @@ The underlying implementation of the zuora4r gem is still in place but that is g
 
 == Installing the Gem
     $ sudo gem sources -a http://gemcutter.org
-    $ sudo gem install ActiveZuora
+    $ sudo gem install active_zuora
 
