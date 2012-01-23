@@ -29,7 +29,6 @@ module DefaultMappingRegistry
       ["fieldsToNull", "SOAP::SOAPString[]", [0, nil]],
       ["id", [nil, XSD::QName.new(NsObjectApiZuoraCom, "Id")], [0, 1]],
       ["accountNumber", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "AccountNumber")], [0, 1]],
-      ["additionalEmailAddresses", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "AdditionalEmailAddresses")], [0, 1]],
       ["allowInvoiceEdit", ["SOAP::SOAPBoolean", XSD::QName.new(NsObjectApiZuoraCom, "AllowInvoiceEdit")], [0, 1]],
       ["autoPay", ["SOAP::SOAPBoolean", XSD::QName.new(NsObjectApiZuoraCom, "AutoPay")], [0, 1]],
       ["batch", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Batch")], [0, 1]],
@@ -164,12 +163,12 @@ module DefaultMappingRegistry
       ["amount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Amount")], [0, 1]],
       ["sourceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "SourceId")], [0, 1]],
       ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
-      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
+      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],    
       ["sourceType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "SourceType")], [0, 1]],
       ["adjustmentDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "AdjustmentDate")], [0, 1]]
     ]
   )
-
+  
   EncodedRegistry.register(
     :class => ZUORA::Payment,
     :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "Payment"),
@@ -773,7 +772,7 @@ module DefaultMappingRegistry
       ["targetDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TargetDate")], [0, 1]]
     ]
   )
-
+  
   LiteralRegistry.register(
     :class => ZUORA::InvoiceItemAdjustment,
     :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "InvoiceItemAdjustment"),
@@ -785,7 +784,7 @@ module DefaultMappingRegistry
       ["amount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Amount")], [0, 1]],
       ["sourceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "SourceId")], [0, 1]],
       ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
-      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
+      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],    
       ["sourceType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "SourceType")], [0, 1]],
       ["adjustmentDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "AdjustmentDate")], [0, 1]]
     ]

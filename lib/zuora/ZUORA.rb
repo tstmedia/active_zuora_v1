@@ -51,7 +51,6 @@ class Account < ZObject
   attr_accessor :fieldsToNull
   attr_accessor :id
   attr_accessor :accountNumber
-  attr_accessor :additionalEmailAddresses
   attr_accessor :allowInvoiceEdit
   attr_accessor :autoPay
   attr_accessor :batch
@@ -73,11 +72,10 @@ class Account < ZObject
   attr_accessor :updatedDate
   attr_accessor :invoiceDeliveryPrefsEmail
 
-  def initialize(fieldsToNull = [], id = nil, accountNumber = nil, additionalEmailAddresses = nil, allowInvoiceEdit = nil, autoPay = nil, batch = nil, billCycleDay = nil, billToId = nil, createdDate = nil, crmId = nil, currency = nil, customerServiceRepName = nil, defaultPaymentMethodId = nil, paymentGateway = nil, name = nil, notes = nil, paymentTerm = nil, purchaseOrderNumber = nil, salesRepName = nil, soldToId = nil, status = nil, updatedDate = nil)
+  def initialize(fieldsToNull = [], id = nil, accountNumber = nil, allowInvoiceEdit = nil, autoPay = nil, batch = nil, billCycleDay = nil, billToId = nil, createdDate = nil, crmId = nil, currency = nil, customerServiceRepName = nil, defaultPaymentMethodId = nil, paymentGateway = nil, name = nil, notes = nil, paymentTerm = nil, purchaseOrderNumber = nil, salesRepName = nil, soldToId = nil, status = nil, updatedDate = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountNumber = accountNumber
-    @additionalEmailAddresses = additionalEmailAddresses
     @allowInvoiceEdit = allowInvoiceEdit
     @autoPay = autoPay
     @batch = batch
