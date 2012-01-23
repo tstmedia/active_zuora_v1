@@ -20,7 +20,11 @@ module Zuora
 
     #TODO: This sucks attributes need to be clearly defined
     def self.attribute_names
-      @attribute_names ||= zobject_class.instance_variable_get("@attributes").reject{|name| name == :fieldsToNull }
+      @attribute_names ||= zobject_class.instance_variable_get("@attributes").reject{|name| self.excluded_attributes.include? name  }
+    end
+
+    def self.excluded_attributes(attributes=[])
+      [:fieldsToNull] + attributes
     end
 
     def self.where(conditions={})
