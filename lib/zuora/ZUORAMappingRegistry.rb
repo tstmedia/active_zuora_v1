@@ -153,6 +153,38 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => ZUORA::InvoiceItem,
+    :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "InvoiceItem"),
+    :schema_basetype => XSD::QName.new(NsObjectApiZuoraCom, "zObject"),
+    :schema_element => [
+      ["fieldsToNull", "SOAP::SOAPString[]", [0, nil]],
+      ["accountingCode", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "AccountingCode")], [0, 1]],
+      ["chargeAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "ChargeAmount")], [0, 1]],
+      ["chargeDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargeDate")], [0, 1]],
+      ["chargeDescription", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ChargeDescription")], [0, 1]],
+      ["chargeName", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ChargeName")], [0, 1]],
+      ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
+      ["processingType", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "ProcessingType")], [0, 1]],
+      ["productDescription", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ProductDescription")], [0, 1]],
+      ["productId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "ProductId")], [0, 1]],
+      ["productName", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ProductName")], [0, 1]],
+      ["quantity", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Quantity")], [0, 1]],
+      ["ratePlanChargeId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "RatePlanChargeId")], [0, 1]],
+      ["revRecCode", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "RevRecCode")], [0, 1]],
+      ["revRecStartDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "RevRecStartDate")], [0, 1]],
+      ["serviceEndDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ServiceEndDate")], [0, 1]],
+      ["serviceStartDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ServiceStartDate")], [0, 1]],
+      ["sku", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "SKU")], [0, 1]],
+      ["subscriptionId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "SubscriptionId")], [0, 1]],
+      ["subscriptionNumber", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "SubscriptionNumber")], [0, 1]],
+      ["taxAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "TaxAmount")], [0, 1]],
+      ["taxCode", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "TaxCode")], [0, 1]],
+      ["taxExemptAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "TaxExemptAmount")], [0, 1]],
+      ["unitPrice", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "UnitPrice")], [0, 1]],
+      ["uom", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "UOM")], [0, 1]]
+    ]
+  )
+  EncodedRegistry.register(
     :class => ZUORA::InvoiceItemAdjustment,
     :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "InvoiceItemAdjustment"),
     :schema_basetype => XSD::QName.new(NsObjectApiZuoraCom, "zObject"),
@@ -163,12 +195,12 @@ module DefaultMappingRegistry
       ["amount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Amount")], [0, 1]],
       ["sourceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "SourceId")], [0, 1]],
       ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
-      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],    
+      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
       ["sourceType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "SourceType")], [0, 1]],
       ["adjustmentDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "AdjustmentDate")], [0, 1]]
     ]
   )
-  
+
   EncodedRegistry.register(
     :class => ZUORA::Payment,
     :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "Payment"),
@@ -772,7 +804,7 @@ module DefaultMappingRegistry
       ["targetDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TargetDate")], [0, 1]]
     ]
   )
-  
+
   LiteralRegistry.register(
     :class => ZUORA::InvoiceItemAdjustment,
     :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "InvoiceItemAdjustment"),
@@ -784,7 +816,7 @@ module DefaultMappingRegistry
       ["amount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Amount")], [0, 1]],
       ["sourceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "SourceId")], [0, 1]],
       ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
-      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],    
+      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
       ["sourceType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "SourceType")], [0, 1]],
       ["adjustmentDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "AdjustmentDate")], [0, 1]]
     ]

@@ -308,6 +308,66 @@ class Invoice < ZObject
   end
 end
 
+class InvoiceItem < ZObject
+  attr_accessor :fieldsToNull
+  attr_accessor :id
+  attr_accessor :accountingCode
+  attr_accessor :chargeAmount
+  attr_accessor :chargeDate
+  attr_accessor :chargeDescription
+  attr_accessor :chargeName
+  attr_accessor :chargeNumber
+  attr_accessor :invoiceId
+  attr_accessor :processingType
+  attr_accessor :productDescription
+  attr_accessor :productId
+  attr_accessor :productName
+  attr_accessor :quantity
+  attr_accessor :ratePlanChargeId
+  attr_accessor :revRecCode
+  attr_accessor :revRecStartDate
+  attr_accessor :serviceEndDate
+  attr_accessor :serviceStartDate
+  attr_accessor :sku
+  attr_accessor :subscriptionId
+  attr_accessor :subscriptionNumber
+  attr_accessor :taxAmount
+  attr_accessor :taxCode
+  attr_accessor :taxExemptAmount
+  attr_accessor :unitPrice
+  attr_accessor :uom
+
+  def initialize(fieldsToNull=[], id=nil, accountingCode=nil, chargeAmount=nil, chargeDate=nil, chargeDescription=nil, chargeName=nil, chargeNumber=nil, invoiceId=nil, processingType=nil, productDescription=nil, productId=nil, productName=nil, quantity=nil, ratePlanChargeId=nil, revRecCode=nil, revRecStartDate=nil, serviceEndDate=nil, serviceStartDate=nil, sku=nil, subscriptionId=nil, subscriptionNumber=nil, taxAmount=nil, taxCode=nil, taxExemptAmount=nil, unitPrice=nil, uom=nil)
+    @fieldsToNull = fieldsToNull
+    @id = id
+    @accountingCode = accountingCode
+    @chargeAmount = chargeAmount
+    @chargeDate = chargeDate
+    @chargeDescription = chargeDescription
+    @chargeName = chargeName
+    @chargeNumber = chargeNumber
+    @invoiceId = invoiceId
+    @processingType = processingType
+    @productDescription = productDescription
+    @productId = productId
+    @productName = productName
+    @quantity = quantity
+    @ratePlanChargeId = ratePlanChargeId
+    @revRecCode = revRecCode
+    @revRecStartDate = revRecStartDate
+    @serviceEndDate = serviceEndDate
+    @serviceStartDate = serviceStartDate
+    @sku = sku
+    @subscriptionId = subscriptionId
+    @subscriptionNumber = subscriptionNumber
+    @taxAmount = taxAmount
+    @taxCode = taxCode
+    @taxExemptAmount = taxExemptAmount
+    @unitPrice = unitPrice
+    @uom = uom
+  end
+end
+
 class InvoiceItemAdjustment < ZObject
   attr_accessor :fieldsToNull
   attr_accessor :id
