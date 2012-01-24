@@ -28,7 +28,9 @@ module Zuora
     end
 
     def self.where(conditions={})
-      zobjects = self.client.query("select #{self.attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}")
+      query = "select #{self.attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}"
+      puts query if $DEBUG
+      zobjects = self.client.query(query)
       zobjects.map{|zobject| self.new zobject }
     end
 
@@ -40,7 +42,9 @@ module Zuora
     end
 
     def self.find(id)
-      zobject = client.query("select #{attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'").first
+      query = "select #{attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'"
+      puts query if $DEBUG
+      zobject = client.query(query).first
       self.new zobject if zobject
     end
 
