@@ -311,60 +311,44 @@ end
 class InvoiceItem < ZObject
   attr_accessor :fieldsToNull
   attr_accessor :id
-  attr_accessor :accountingCode
   attr_accessor :chargeAmount
   attr_accessor :chargeDate
-  attr_accessor :chargeDescription
   attr_accessor :chargeName
   attr_accessor :chargeNumber
   attr_accessor :invoiceId
   attr_accessor :processingType
-  attr_accessor :productDescription
   attr_accessor :productId
   attr_accessor :productName
   attr_accessor :quantity
   attr_accessor :ratePlanChargeId
-  attr_accessor :revRecCode
-  attr_accessor :revRecStartDate
   attr_accessor :serviceEndDate
   attr_accessor :serviceStartDate
-  attr_accessor :sku
   attr_accessor :subscriptionId
   attr_accessor :subscriptionNumber
   attr_accessor :taxAmount
-  attr_accessor :taxCode
   attr_accessor :taxExemptAmount
   attr_accessor :unitPrice
-  attr_accessor :uom
 
-  def initialize(fieldsToNull=[], id=nil, accountingCode=nil, chargeAmount=nil, chargeDate=nil, chargeDescription=nil, chargeName=nil, chargeNumber=nil, invoiceId=nil, processingType=nil, productDescription=nil, productId=nil, productName=nil, quantity=nil, ratePlanChargeId=nil, revRecCode=nil, revRecStartDate=nil, serviceEndDate=nil, serviceStartDate=nil, sku=nil, subscriptionId=nil, subscriptionNumber=nil, taxAmount=nil, taxCode=nil, taxExemptAmount=nil, unitPrice=nil, uom=nil)
+  def initialize(fieldsToNull=[], id=nil, chargeAmount=nil, chargeDate=nil, chargeName=nil, chargeNumber=nil, invoiceId=nil, processingType=nil, productId=nil, productName=nil, quantity=nil, ratePlanChargeId=nil, serviceEndDate=nil, serviceStartDate=nil, subscriptionId=nil, subscriptionNumber=nil, taxAmount=nil, taxExemptAmount=nil, unitPrice=nil)
     @fieldsToNull = fieldsToNull
     @id = id
-    @accountingCode = accountingCode
     @chargeAmount = chargeAmount
     @chargeDate = chargeDate
-    @chargeDescription = chargeDescription
     @chargeName = chargeName
     @chargeNumber = chargeNumber
     @invoiceId = invoiceId
     @processingType = processingType
-    @productDescription = productDescription
     @productId = productId
     @productName = productName
     @quantity = quantity
     @ratePlanChargeId = ratePlanChargeId
-    @revRecCode = revRecCode
-    @revRecStartDate = revRecStartDate
     @serviceEndDate = serviceEndDate
     @serviceStartDate = serviceStartDate
-    @sku = sku
     @subscriptionId = subscriptionId
     @subscriptionNumber = subscriptionNumber
     @taxAmount = taxAmount
-    @taxCode = taxCode
     @taxExemptAmount = taxExemptAmount
     @unitPrice = unitPrice
-    @uom = uom
   end
 end
 
@@ -891,12 +875,9 @@ class Subscription < ZObject
   attr_accessor :cancelledDate
   attr_accessor :contractAcceptanceDate
   attr_accessor :contractEffectiveDate
-  attr_accessor :currency
   attr_accessor :initialTerm
   attr_accessor :name
   attr_accessor :notes
-  attr_accessor :originalSubscriptionId
-  attr_accessor :previousSubscriptionId
   attr_accessor :renewalTerm
   attr_accessor :serviceActivationDate
   attr_accessor :subscriptionEndDate
@@ -904,7 +885,7 @@ class Subscription < ZObject
   attr_accessor :termStartDate
   attr_accessor :version
 
-  def initialize(fieldsToNull = [], id = nil, accountId = nil, autoRenew = nil, cancelledDate = nil, contractAcceptanceDate = nil, contractEffectiveDate = nil, currency = nil, initialTerm = nil, name = nil, notes = nil, originalSubscriptionId = nil, previousSubscriptionId = nil, renewalTerm = nil, serviceActivationDate = nil, subscriptionEndDate = nil, status = nil, termStartDate = nil, version = nil)
+  def initialize(fieldsToNull = [], id = nil, accountId = nil, autoRenew = nil, cancelledDate = nil, contractAcceptanceDate = nil, contractEffectiveDate = nil, initialTerm = nil, name = nil, notes = nil, renewalTerm = nil, serviceActivationDate = nil, subscriptionEndDate = nil, status = nil, termStartDate = nil, version = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountId = accountId
@@ -912,12 +893,9 @@ class Subscription < ZObject
     @cancelledDate = cancelledDate
     @contractAcceptanceDate = contractAcceptanceDate
     @contractEffectiveDate = contractEffectiveDate
-    @currency = currency
     @initialTerm = initialTerm
     @name = name
     @notes = notes
-    @originalSubscriptionId = originalSubscriptionId
-    @previousSubscriptionId = previousSubscriptionId
     @renewalTerm = renewalTerm
     @serviceActivationDate = serviceActivationDate
     @subscriptionEndDate= subscriptionEndDate
