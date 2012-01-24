@@ -12,6 +12,10 @@ module Zuora
       __getobj__
     end
 
+    def id
+      __getobj__.id
+    end
+
     def self.zobject_class
       return @zobject_class if @zobject_class
       klass_name = name.match(/(\w+)::(\w+)/)
