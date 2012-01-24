@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["anfleene"]
-  s.date = "2012-01-20"
+  s.date = "2012-01-24"
   s.description = "A client for Zuora API"
   s.email = "anfleene@gmail.com"
   s.extra_rdoc_files = [
@@ -22,21 +22,38 @@ Gem::Specification.new do |s|
     "active_zuora.gemspec",
     "custom_fields.yml",
     "lib/active_zuora.rb",
+    "lib/active_zuora/account.rb",
+    "lib/active_zuora/amendment.rb",
+    "lib/active_zuora/bill_run.rb",
+    "lib/active_zuora/contact.rb",
+    "lib/active_zuora/invoice.rb",
+    "lib/active_zuora/invoice_item.rb",
+    "lib/active_zuora/invoice_item_adjustment.rb",
+    "lib/active_zuora/invoice_payment.rb",
+    "lib/active_zuora/payment.rb",
+    "lib/active_zuora/payment_method.rb",
+    "lib/active_zuora/product.rb",
+    "lib/active_zuora/product_rate_plan.rb",
+    "lib/active_zuora/product_rate_plan_charge.rb",
+    "lib/active_zuora/product_rate_plan_charge_tier.rb",
+    "lib/active_zuora/product_rate_plan_charge_tier_data.rb",
+    "lib/active_zuora/rate_plan.rb",
+    "lib/active_zuora/rate_plan_charge.rb",
+    "lib/active_zuora/rate_plan_charge_tier.rb",
+    "lib/active_zuora/rate_plan_data.rb",
+    "lib/active_zuora/refund.rb",
+    "lib/active_zuora/subscribe_options.rb",
+    "lib/active_zuora/subscribe_request.rb",
+    "lib/active_zuora/subscribe_with_existing_account_request.rb",
+    "lib/active_zuora/subscription.rb",
+    "lib/active_zuora/subscription_data.rb",
+    "lib/active_zuora/usage.rb",
+    "lib/active_zuora/zobject.rb",
     "lib/zuora/ZUORA.rb",
     "lib/zuora/ZUORADriver.rb",
     "lib/zuora/ZUORAMappingRegistry.rb",
     "lib/zuora/ZuoraServiceClient.rb",
-    "lib/zuora/account.rb",
     "lib/zuora/api.rb",
-    "lib/zuora/contact.rb",
-    "lib/zuora/rate_plan.rb",
-    "lib/zuora/rate_plan_data.rb",
-    "lib/zuora/subscribe_options.rb",
-    "lib/zuora/subscribe_request.rb",
-    "lib/zuora/subscribe_with_existing_account_request.rb",
-    "lib/zuora/subscription.rb",
-    "lib/zuora/subscription_data.rb",
-    "lib/zuora/zobject.rb",
     "lib/zuora_client.rb",
     "lib/zuora_interface.rb"
   ]
