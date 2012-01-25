@@ -8,8 +8,15 @@ This is a fork of the Zuora4r Gem that has started to develop a mind of its own.
 The fork is adding a new interface to the gem along with removing parts deemed unnecessary.
 The underlying implementation of the zuora4r gem is still in place but that is going to change in the future.
 
-
 == Installing the Gem
     $ sudo gem sources -a http://gemcutter.org
     $ sudo gem install active_zuora
 
+== Future Releases
+
+  In the short term this gem will hold on to most of the existing zuora api code with more active recordy style additions to its interface
+  In the long term the underlying implementation will be refactored and condensed into something smaller and more idiomatic
+
+=== Important Missing Features
+  Completion of active zuora's CRUD actions
+  Support for Zuora's queryMore api call
