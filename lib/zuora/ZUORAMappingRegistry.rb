@@ -950,7 +950,6 @@ module DefaultMappingRegistry
       ["billingPeriod", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "BillingPeriod")], [0, 1]],
       ["billCycleType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "BillCycleType")], [0, 1]],
       ["revRecTriggerCondition", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "RevRecTriggerCondition")], [0, 1]],
-      ["productRatePlanChargeTierData", ["ZUORA::ProductRatePlanChargeTierData", XSD::QName.new(NsObjectApiZuoraCom, "ProductRatePlanChargeTierData")], [0, 1]]
     ]
   )
 
