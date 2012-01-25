@@ -633,7 +633,6 @@ class ProductRatePlanCharge < ZObject
   attr_accessor :description
   attr_accessor :maxQuantity
   attr_accessor :minQuantity
-  attr_accessor :model
   attr_accessor :name
   attr_accessor :productRatePlanId
   attr_accessor :type
@@ -647,7 +646,7 @@ class ProductRatePlanCharge < ZObject
   attr_accessor :revRecTriggerCondition
   attr_accessor :productRatePlanChargeTierData
 
-  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, defaultQuantity = nil, description = nil, maxQuantity = nil, minQuantity = nil, model = nil, name = nil, productRatePlanId = nil, type = nil, uOM = nil, chargeModel = nil, revRecCode=nil, triggerEvent=nil, chargeType=nil, billingPeriod=nil, billCycleType=nil, revRecTriggerCondition=nil, productRatePlanChargeTierData=nil)
+  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, defaultQuantity = nil, description = nil, maxQuantity = nil, minQuantity = nil, name = nil, productRatePlanId = nil, type = nil, uOM = nil, chargeModel = nil, revRecCode=nil, triggerEvent=nil, chargeType=nil, billingPeriod=nil, billCycleType=nil, revRecTriggerCondition=nil, productRatePlanChargeTierData=nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountingCode = accountingCode
@@ -655,7 +654,6 @@ class ProductRatePlanCharge < ZObject
     @description = description
     @maxQuantity = maxQuantity
     @minQuantity = minQuantity
-    @model = model
     @name = name
     @productRatePlanId = productRatePlanId
     @type = type

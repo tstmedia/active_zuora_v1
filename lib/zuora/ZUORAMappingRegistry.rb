@@ -939,7 +939,6 @@ module DefaultMappingRegistry
       ["description", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Description")], [0, 1]],
       ["maxQuantity", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "MaxQuantity")], [0, 1]],
       ["minQuantity", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "MinQuantity")], [0, 1]],
-      ["model", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Model")], [0, 1]],
       ["productRatePlanId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "ProductRatePlanId")], [0, 1]],
       ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
       ["uOM", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "UOM")], [0, 1]],
