@@ -940,7 +940,6 @@ module DefaultMappingRegistry
       ["maxQuantity", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "MaxQuantity")], [0, 1]],
       ["minQuantity", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "MinQuantity")], [0, 1]],
       ["productRatePlanId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "ProductRatePlanId")], [0, 1]],
-      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
       ["uOM", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "UOM")], [0, 1]],
       ["name", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Name")], [0, 1]],
       ["chargeModel", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ChargeModel")], [0, 1]],
@@ -949,7 +948,7 @@ module DefaultMappingRegistry
       ["chargeType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ChargeType")], [0, 1]],
       ["billingPeriod", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "BillingPeriod")], [0, 1]],
       ["billCycleType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "BillCycleType")], [0, 1]],
-      ["revRecTriggerCondition", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "RevRecTriggerCondition")], [0, 1]],
+      ["revRecTriggerCondition", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "RevRecTriggerCondition")], [0, 1]]
     ]
   )
 
