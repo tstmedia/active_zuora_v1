@@ -644,11 +644,10 @@ class ProductRatePlanCharge < ZObject
   attr_accessor :chargeType
   attr_accessor :billingPeriod
   attr_accessor :billCycleType
-  attr_accessor :billingPeriodAlignement
   attr_accessor :revRecTriggerCondition
   attr_accessor :productRatePlanChargeTierData
 
-  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, defaultQuantity = nil, description = nil, maxQuantity = nil, minQuantity = nil, model = nil, name = nil, productRatePlanId = nil, type = nil, uOM = nil, chargeModel = nil, revRecCode=nil, triggerEvent=nil, chargeType=nil, billingPeriod=nil, billCycleType=nil, billingPeriodAlignement=nil, revRecTriggerCondition=nil, productRatePlanChargeTierData=nil)
+  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, defaultQuantity = nil, description = nil, maxQuantity = nil, minQuantity = nil, model = nil, name = nil, productRatePlanId = nil, type = nil, uOM = nil, chargeModel = nil, revRecCode=nil, triggerEvent=nil, chargeType=nil, billingPeriod=nil, billCycleType=nil, revRecTriggerCondition=nil, productRatePlanChargeTierData=nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountingCode = accountingCode
@@ -667,7 +666,6 @@ class ProductRatePlanCharge < ZObject
     @chargeType=chargeType,
     @billingPeriod=billingPeriod,
     @billCycleType=billCycleType,
-    @billingPeriodAlignement=billingPeriodAlignement
     @revRecTriggerCondition=revRecTriggerCondition
     @productRatePlanChargeTierData=productRatePlanChargeTierData
   end
