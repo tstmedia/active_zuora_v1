@@ -18,5 +18,6 @@ In the short term this gem will hold on to most of the existing zuora api code w
 In the long term the underlying implementation will be refactored and condensed into something smaller and more idiomatic
 
 === Important Missing Features
+
 Completion of active zuora's CRUD actions
 Support for Zuora's queryMore api call
