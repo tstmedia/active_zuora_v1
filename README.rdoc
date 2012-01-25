@@ -14,9 +14,9 @@ The underlying implementation of the zuora4r gem is still in place but that is g
 
 == Future Releases
 
-  In the short term this gem will hold on to most of the existing zuora api code with more active recordy style additions to its interface
-  In the long term the underlying implementation will be refactored and condensed into something smaller and more idiomatic
+In the short term this gem will hold on to most of the existing zuora api code with more active recordy style additions to its interface
+In the long term the underlying implementation will be refactored and condensed into something smaller and more idiomatic
 
 === Important Missing Features
-  Completion of active zuora's CRUD actions
-  Support for Zuora's queryMore api call
+Completion of active zuora's CRUD actions
+Support for Zuora's queryMore api call
