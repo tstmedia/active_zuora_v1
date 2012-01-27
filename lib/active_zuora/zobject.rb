@@ -18,8 +18,8 @@ module Zuora
 
     def self.zobject_class
       return @zobject_class if @zobject_class
-      klass_name = name.match(/(\w+)::(\w+)/)
-      @zobject_class = "#{klass_name[1].upcase}::#{klass_name[2]}".constantize
+      klass_name = name.match(/\w+::(\w+)/)
+      @zobject_class = ZUORA.const_defined?(klass_name[1]) ? ZUORA.const_get(klass_name[1]) : ZUORA.const_missing(klass_name[1])
     end
 
     #TODO: This sucks attributes need to be clearly defined
