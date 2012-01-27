@@ -18,8 +18,12 @@ module Zuora
 
     def self.zobject_class
       return @zobject_class if @zobject_class
-      klass_name = name.match(/\w+::(\w+)/)
-      @zobject_class = ZUORA.const_defined?(klass_name[1]) ? ZUORA.const_get(klass_name[1]) : ZUORA.const_missing(klass_name[1])
+      klass_name = name.split("::").last
+      if ZUORA.const_defined?(klass_name)
+        @zobject_class = ZUORA.const_get(klass_name)
+      else
+        @zobject_class = self.superclass.respond_to?(:zobject_class) ? self.superclass.zobject_class : ZUORA.const_missing(klass_name)
+      end
     end
 
     #TODO: This sucks attributes need to be clearly defined
