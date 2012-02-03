@@ -16,6 +16,14 @@ module Zuora
       __getobj__.id
     end
 
+    def attributes
+      Hash.new.tap do |hash|
+        self.class.attribute_names.each do |attr|
+          hash[attr] = self.send(attr)
+        end
+      end
+    end
+
     def self.create(attributes={})
       self.client.create([self.new(attributes)])
     end
