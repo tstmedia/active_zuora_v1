@@ -25,11 +25,11 @@ module Zuora
     end
 
     def self.create(attributes={})
-      self.client.create([self.new(attributes)])
+      self.client.create([self.new(attributes).to_zobject])
     end
 
     def self.update_attributes(attributes={})
-      self.client.update([self.new(attributes)])
+      self.client.update([self.new(attributes).to_zobject])
     end
 
     def self.zobject_class
