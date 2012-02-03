@@ -16,6 +16,14 @@ module Zuora
       __getobj__.id
     end
 
+    def self.create(attributes={})
+      self.client.create([self.new(attributes)])
+    end
+
+    def self.update_attributes(attributes={})
+      self.client.update([self.new(attributes)])
+    end
+
     def self.zobject_class
       return @zobject_class if @zobject_class
       klass_name = name.split("::").last
