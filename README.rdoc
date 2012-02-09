@@ -20,4 +20,13 @@ In the long term the underlying implementation will be refactored and condensed 
 === Important Missing Features
 
 Completion of active zuora's CRUD actions
+  Include Delete
 Support for Zuora's queryMore api call
+
+Support for automatically renewing sessions
+  First step here is to remove weird error handling that just captures and prints an exception
+
+BUG:
+  Auto quote where calls
+
+
