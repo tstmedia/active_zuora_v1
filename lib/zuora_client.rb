@@ -44,8 +44,13 @@ end
 
 module Zuora
   class Client
-    PROD_URL = 'https://www.zuora.com/apps/services/a/36.0'
-    SANDBOX_URL = 'https://apisandbox.zuora.com/apps/services/a/36.0'
+    API_VERSION = "36.0"
+    PROD_URL = "https://www.zuora.com/apps/services/a/#{API_VERSION}"
+    SANDBOX_URL = "https://apisandbox.zuora.com/apps/services/a/#{API_VERSION}"
+
+    def self.app_url
+      SANDBOX_URL
+    end
 
     def self.config
       return @config_hash if @config_hash
@@ -71,10 +76,10 @@ module Zuora
       @custom_fields = YAML.load_file(File.dirname(__FILE__) + '/../custom_fields.yml')
     end
 
-    def initialize(url=SANDBOX_URL)
+    def initialize(url=nil)
       $ZUORA_USER = self.class.config["username"]
       $ZUORA_PASSWORD = self.class.config["password"]
-      $ZUORA_ENDPOINT = url
+      $ZUORA_ENDPOINT = url || self.class.app_url
 
       @client = ZuoraInterface.new
 
