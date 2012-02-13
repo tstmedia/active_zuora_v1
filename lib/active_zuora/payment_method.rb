@@ -1,6 +1,6 @@
 module Zuora
   class PaymentMethod < ZObject
-    def self.excluded_attributes(attributes=[])
+    def self.excluded_query_attributes(attributes=[])
       super([:achAccountNumber, :creditCardNumber, :creditCardSecurityCode])
     end
 

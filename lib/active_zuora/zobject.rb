@@ -44,15 +44,20 @@ module Zuora
 
     #TODO: This sucks attributes need to be clearly defined
     def self.attribute_names
-      @attribute_names ||= zobject_class.instance_variable_get("@attributes").reject{|name| self.excluded_attributes.include? name  }
+      @attribute_names ||= zobject_class.instance_variable_get("@attributes")
     end
 
-    def self.excluded_attributes(attributes=[])
+    def self.query_attribute_names(all_attributes=nil)
+      return self.attribute_names if all_attributes
+      @query_attribute_names ||= self.attribute_names.reject{|name| self.excluded_query_attributes.include? name  }
+    end
+
+    def self.excluded_query_attributes(attributes=[])
       [:fieldsToNull] + attributes
     end
 
-    def self.where(conditions={})
-      query = "select #{self.attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}"
+    def self.where(conditions={}, options={})
+      query = "select #{self.query_attribute_names(options[:include_excluded]).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}"
       puts query if $DEBUG
       zobjects = self.client.query(query)
       zobjects.map{|zobject| self.new zobject }
@@ -65,15 +70,15 @@ module Zuora
       }.join(" and ")
     end
 
-    def self.find(id)
-      query = "select #{attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'"
+    def self.find(id, options={})
+      query = "select #{query_attribute_names(options[:include_excluded]).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'"
       puts query if $DEBUG
       zobject = client.query(query).first
       self.new zobject if zobject
     end
 
-    def self.all
-      zobjects = client.query("select #{attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")}")
+    def self.all(options={})
+      zobjects = client.query("select #{query_attribute_names(options[:include_excluded]).join(", ")} from #{self.name.gsub(/Zuora::/,"")}")
       zobjects.map{|zobject| self.new zobject }
     end
 
