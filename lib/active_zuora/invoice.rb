@@ -1,6 +1,6 @@
 module Zuora
   class Invoice < ZObject
-    def self.excluded_query_attributes(attributes=[])
+    def self.extra_attributes(attributes=[])
       super([:body])
     end
 

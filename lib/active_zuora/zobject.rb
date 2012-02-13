@@ -47,13 +47,19 @@ module Zuora
       @attribute_names ||= zobject_class.instance_variable_get("@attributes")
     end
 
-    def self.query_attribute_names(all_attributes=nil)
-      return self.attribute_names if all_attributes
+    def self.query_attribute_names(options={})
+      excluded_attributes = []
+      excluded_attributes.push self.excluded_query_attributes unless options[:include_excluded]
+      excluded_attributes.push self.extra_attributes unless options[:include_extras]
       @query_attribute_names ||= self.attribute_names.reject{|name| self.excluded_query_attributes.include? name  }
     end
 
     def self.excluded_query_attributes(attributes=[])
       [:fieldsToNull] + attributes
+    end
+
+    def self.extra_attributes(attributes=[])
+      attributes
     end
 
     def self.where(conditions={}, options={})
@@ -70,8 +76,8 @@ module Zuora
       }.join(" and ")
     end
 
-    def self.find(id, options={})
-      query = "select #{query_attribute_names(options[:include_excluded]).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'"
+    def self.find(id)
+      query = "select #{query_attribute_names(:include_extras => true).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'"
       puts query if $DEBUG
       zobject = client.query(query).first
       self.new zobject if zobject
