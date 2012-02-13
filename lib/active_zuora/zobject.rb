@@ -49,9 +49,9 @@ module Zuora
 
     def self.query_attribute_names(options={})
       excluded_attributes = []
-      excluded_attributes.push self.excluded_query_attributes unless options[:include_excluded]
-      excluded_attributes.push self.extra_attributes unless options[:include_extras]
-      @query_attribute_names ||= self.attribute_names.reject{|name| self.excluded_query_attributes.include? name  }
+      excluded_attributes.push *self.excluded_query_attributes unless options[:include_excluded]
+      excluded_attributes.push *self.extra_attributes unless options[:include_extras]
+      self.attribute_names.reject{|name| excluded_attributes.include? name  }
     end
 
     def self.excluded_query_attributes(attributes=[])
@@ -63,7 +63,7 @@ module Zuora
     end
 
     def self.where(conditions={}, options={})
-      query = "select #{self.query_attribute_names(options[:include_excluded]).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}"
+      query = "select #{self.query_attribute_names(options).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}"
       puts query if $DEBUG
       zobjects = self.client.query(query)
       zobjects.map{|zobject| self.new zobject }
@@ -84,7 +84,7 @@ module Zuora
     end
 
     def self.all(options={})
-      zobjects = client.query("select #{query_attribute_names(options[:include_excluded]).join(", ")} from #{self.name.gsub(/Zuora::/,"")}")
+      zobjects = client.query("select #{query_attribute_names(options).join(", ")} from #{self.name.gsub(/Zuora::/,"")}")
       zobjects.map{|zobject| self.new zobject }
     end
 
