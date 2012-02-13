@@ -7,5 +7,17 @@ module Zuora
     def soldTo
       @soldTo ||= Contact.find(self.soldToId)
     end
+
+    def subscriptions
+      @subscriptions ||= Subscription.where(:accountid => self.id)
+    end
+
+    def invoices
+      @invoices ||= Invoice.where(:accountid => self.id)
+    end
+
+    def payment_methods
+      @payment_methods ||= PaymentMethod.where(:accountid => self.id)
+    end
   end
 end
