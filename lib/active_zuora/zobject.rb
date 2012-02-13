@@ -60,7 +60,7 @@ module Zuora
 
     def self.build_filter_statments(filter_statments)
       filter_statments.map{|key, value|
-        value = "'#{value}'" if value.kind_of?(String) || value.kind_of?(Fixnum)
+        value = "'#{value}'" if value.kind_of?(String)
         "#{key} = #{value}"
       }.join(" and ")
     end
@@ -75,22 +75,6 @@ module Zuora
     def self.all
       zobjects = client.query("select #{attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")}")
       zobjects.map{|zobject| self.new zobject }
-    end
-
-    def self.count
-      client.query("select count(*) from #{self.name.gsub(/Zuora::/,"")}")
-    end
-
-    def self.first
-      query = "select #{attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} limit 1"
-      zobject = client.query(query).first
-      self.new zobject if zobject
-    end
-
-    def self.last
-      query = "select #{attribute_names.join(", ")} from #{self.name.gsub(/Zuora::/,"")} limit #{self.count - 1}, 1"
-      zobject = client.query(query).first
-      self.new zobject if zobject
     end
 
     def self.client
