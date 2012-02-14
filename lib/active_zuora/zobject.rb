@@ -16,6 +16,10 @@ module Zuora
       __getobj__.id
     end
 
+    def type
+      __getobj__.type
+    end
+
     def attributes
       Hash.new.tap do |hash|
         self.class.attribute_names.each do |attr|
