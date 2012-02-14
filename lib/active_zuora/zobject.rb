@@ -19,7 +19,7 @@ module Zuora
     def attributes
       Hash.new.tap do |hash|
         self.class.attribute_names.each do |attr|
-          hash[attr] = self.send(attr)
+          hash[attr] = __getobj__.send(attr)
         end
       end
     end
