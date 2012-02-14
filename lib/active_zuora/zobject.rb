@@ -24,6 +24,14 @@ module Zuora
       end
     end
 
+    def destroy
+      self.class.destroy(id)
+    end
+
+    def self.destroy(ids)
+      self.client.delete(self.klass_name, [ids].flatten)
+    end
+
     def self.create(attributes={})
       self.client.create([self.new(attributes).to_zobject])
     end
@@ -34,12 +42,16 @@ module Zuora
 
     def self.zobject_class
       return @zobject_class if @zobject_class
-      klass_name = name.split("::").last
-      if ZUORA.const_defined?(klass_name)
-        @zobject_class = ZUORA.const_get(klass_name)
+
+      if ZUORA.const_defined?(self.klass_name)
+        @zobject_class = ZUORA.const_get(self.klass_name)
       else
-        @zobject_class = self.superclass.respond_to?(:zobject_class) ? self.superclass.zobject_class : ZUORA.const_missing(klass_name)
+        @zobject_class = self.superclass.respond_to?(:zobject_class) ? self.superclass.zobject_class : ZUORA.const_missing(self.klass_name)
       end
+    end
+
+    def self.klass_name
+      @klass_name ||= name.split("::").last
     end
 
     #TODO: This sucks attributes need to be clearly defined
