@@ -19,5 +19,9 @@ module Zuora
     def payment_methods
       @payment_methods ||= PaymentMethod.where(:accountid => self.id)
     end
+
+    def contacts
+      @contacts ||= Contact.where(:accountid => self.id)
+    end
   end
 end
