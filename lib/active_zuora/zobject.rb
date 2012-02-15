@@ -105,7 +105,14 @@ module Zuora
     end
 
     def self.client
-      @client ||= Zuora::Client.new
+      return @client if @client && self.valid_session?
+      @session_start_time = Time.now
+      @client = Zuora::Client.new
+    end
+
+    def self.valid_session?
+      #session is valid if it has been running for less than 8 hours
+      @session_start_time + 28800 > Time.now
     end
   end
 end
