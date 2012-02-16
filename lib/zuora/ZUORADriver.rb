@@ -78,6 +78,7 @@ class Soap < ::SOAP::RPC::Driver
     streamhandler.client.receive_timeout = 360
     self.mapping_registry = DefaultMappingRegistry::EncodedRegistry
     self.literal_mapping_registry = DefaultMappingRegistry::LiteralRegistry
+    self.wiredump_file_base = "/tmp/zuora" if $DEBUG
   end
 
 
