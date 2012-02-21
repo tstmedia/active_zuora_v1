@@ -44,7 +44,7 @@ end
 
 module Zuora
   class Client
-    API_VERSION = "36.0"
+    API_VERSION = "37.0"
     PROD_URL = "https://www.zuora.com/apps/services/a/#{API_VERSION}"
     SANDBOX_URL = "https://apisandbox.zuora.com/apps/services/a/#{API_VERSION}"
 
