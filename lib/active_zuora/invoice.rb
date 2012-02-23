@@ -4,6 +4,16 @@ module Zuora
       super([:body])
     end
 
+    def self.create(attributes={})
+      self.generate([self.new(args).to_zobject])
+    end
+
+    def save
+      result = self.generate([self.to_zobject])
+      self.id = result.id
+      result.success
+    end
+
     def invoice_items
       @invoice_items ||= InvoiceItem.where(:invoiceid => self.id)
     end
