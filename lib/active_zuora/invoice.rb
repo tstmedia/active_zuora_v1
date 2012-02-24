@@ -5,13 +5,29 @@ module Zuora
     end
 
     def self.create(attributes={})
-      self.generate([self.new(args).to_zobject])
+      self.client.generate([self.new(attributes).to_zobject]).first
     end
 
     def save
-      result = self.generate([self.to_zobject])
-      self.id = result.id
-      result.success
+      result = self.class.create(self.attributes)
+      if result[:success]
+        @errors = []
+        __setobj_(self.class.find(result[:id]).to_zobject)
+      else
+        @errors = result[:errors]
+      end
+      result[:success]
+    end
+
+    def errors
+      @errors || []
+    end
+
+    def post
+      return false unless self.id
+      result = self.class.update_attributes(:id => self.id, :status => "Posted").first
+      @errors = result[:errors]
+      result[:success]
     end
 
     def invoice_items
