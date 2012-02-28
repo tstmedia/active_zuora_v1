@@ -818,7 +818,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => ZUORA::BillRun,
-    :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "Invoice"),
+    :schema_type => XSD::QName.new(NsObjectApiZuoraCom, "BillRun"),
     :schema_basetype => XSD::QName.new(NsObjectApiZuoraCom, "zObject"),
     :schema_element => [
       ["fieldsToNull", "SOAP::SOAPString[]", [0, nil]],
