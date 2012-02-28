@@ -407,6 +407,8 @@ end
 #   id - (any)
 #   accountId - (any)
 #   amount - SOAP::SOAPDouble
+#   appliedInvoiceAmount - SOAP::SOAPDouble
+#   invoiceId - (any)
 #   comment - SOAP::SOAPString
 #   effectiveDate - SOAP::SOAPDateTime
 #   paymentMethodId - (any)
@@ -418,6 +420,8 @@ class Payment < ZObject
   attr_accessor :id
   attr_accessor :accountId
   attr_accessor :amount
+  attr_accessor :appliedInvoiceAmount
+  attr_accessor :invoiceId
   attr_accessor :comment
   attr_accessor :effectiveDate
   attr_accessor :paymentMethodId
@@ -425,11 +429,13 @@ class Payment < ZObject
   attr_accessor :status
   attr_accessor :type
 
-  def initialize(fieldsToNull = [], id = nil, accountId = nil, amount = nil, comment = nil, effectiveDate = nil, paymentMethodId = nil, referenceId = nil, status = nil, type = nil)
+  def initialize(fieldsToNull = [], id = nil, accountId = nil, amount = nil, appliedInvoiceAmount = nil, invoiceId = nil, comment = nil, effectiveDate = nil, paymentMethodId = nil, referenceId = nil, status = nil, type = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountId = accountId
     @amount = amount
+    @appliedInvoiceAmount = appliedInvoiceAmount
+    @invoiceId = invoiceId
     @comment = comment
     @effectiveDate = effectiveDate
     @paymentMethodId = paymentMethodId
