@@ -12,7 +12,7 @@ module Zuora
       result = self.class.create(self.attributes)
       if result[:success]
         @errors = []
-        __setobj_(self.class.find(result[:id]).to_zobject)
+        __setobj__(self.class.find(result[:id]).to_zobject)
       else
         @errors = result[:errors]
       end
