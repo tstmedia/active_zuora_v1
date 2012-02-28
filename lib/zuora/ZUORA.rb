@@ -874,6 +874,7 @@ class Subscription < ZObject
   attr_accessor :accountId
   attr_accessor :autoRenew
   attr_accessor :cancelledDate
+  attr_accessor :createdDate
   attr_accessor :contractAcceptanceDate
   attr_accessor :contractEffectiveDate
   attr_accessor :initialTerm
@@ -887,12 +888,13 @@ class Subscription < ZObject
   attr_accessor :termType
   attr_accessor :version
 
-  def initialize(fieldsToNull = [], id = nil, accountId = nil, autoRenew = nil, cancelledDate = nil, contractAcceptanceDate = nil, contractEffectiveDate = nil, initialTerm = nil, name = nil, notes = nil, renewalTerm = nil, serviceActivationDate = nil, subscriptionEndDate = nil, status = nil, termStartDate = nil, termType = nil, version = nil)
+  def initialize(fieldsToNull = [], id = nil, accountId = nil, autoRenew = nil, cancelledDate = nil, createdDate = nil, contractAcceptanceDate = nil, contractEffectiveDate = nil, initialTerm = nil, name = nil, notes = nil, renewalTerm = nil, serviceActivationDate = nil, subscriptionEndDate = nil, status = nil, termStartDate = nil, termType = nil, version = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountId = accountId
     @autoRenew = autoRenew
     @cancelledDate = cancelledDate
+    @createdDate = createdDate
     @contractAcceptanceDate = contractAcceptanceDate
     @contractEffectiveDate = contractEffectiveDate
     @initialTerm = initialTerm
