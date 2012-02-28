@@ -101,17 +101,7 @@ module Zuora
         puts e.message
       end
 
-      result = []
-      if response && response.result && response.result.size > 0
-        response.result.records.each do |record|
-          row = {}
-          fields.each do |f|
-            row[f] = record.send(f)
-          end
-          result << row
-        end
-      end
-      result
+      response && response.result.size > 0 ? response.result.records : []
     end
 
     def subscribe(obj)

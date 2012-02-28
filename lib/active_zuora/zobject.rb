@@ -8,6 +8,12 @@ module Zuora
       end
     end
 
+    def self.new_from_zobject(zobject)
+      self.new.tap do |active_zobject|
+        active_zobject.__setobj__(zobject)
+      end
+    end
+
     def to_zobject
       __getobj__
     end
@@ -82,7 +88,7 @@ module Zuora
       query = "select #{self.query_attribute_names(options).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}"
       puts query if $DEBUG
       zobjects = self.client.query(query)
-      zobjects.map{|zobject| self.new zobject }
+      zobjects.map{|zobject| self.new_from_zobject zobject }
     end
 
     def self.build_filter_statments(filter_statments)
@@ -96,12 +102,12 @@ module Zuora
       query = "select #{query_attribute_names(:include_extras => true).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'"
       puts query if $DEBUG
       zobject = client.query(query).first
-      self.new zobject if zobject
+      self.new_from_zobject zobject if zobject
     end
 
     def self.all(options={})
       zobjects = client.query("select #{query_attribute_names(options).join(", ")} from #{self.name.gsub(/Zuora::/,"")}")
-      zobjects.map{|zobject| self.new zobject }
+      zobjects.map{|zobject| self.new_from_zobject zobject }
     end
 
     def self.client
