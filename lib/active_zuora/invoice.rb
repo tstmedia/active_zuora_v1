@@ -39,7 +39,7 @@ module Zuora
     end
 
     def payments
-      @invoice_payments ||= InvoicePayment.where(:invoiceid => self.id)
+      @payments ||= InvoicePayment.where(:invoiceId => self.id).map(&:payment)
     end
   end
 end
