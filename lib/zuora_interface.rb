@@ -1,6 +1,13 @@
 require 'zuora/api'
 
 class ZuoraInterface
+  begin
+    require 'system_timer'
+    SysTimer = SystemTimer
+  rescue LoadError
+    require 'timeout'
+    SysTimer = Timeout
+  end
 
   def make_account(accountName)
     acc = ZUORA::Account.new
@@ -91,6 +98,10 @@ class ZuoraInterface
       add_errors(result)
     end
     return val
+  end
+
+  def api_call(call, *args)
+    SysTimer.timeout(120) { self.send(call, *args) }
   end
 
   def query(query)

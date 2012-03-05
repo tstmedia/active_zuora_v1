@@ -96,7 +96,7 @@ module Zuora
       end
 
       begin
-        response = @client.query(query_string)
+        response = @client.api_call(:query,query_string)
       rescue Exception => e
         puts e.message
       end
@@ -106,7 +106,7 @@ module Zuora
 
     def subscribe(obj)
       begin
-        response = @client.subscribe(obj)
+        response = @client.api_call(:subscribe, obj)
         return response
       rescue Exception => e
         puts e.message
@@ -115,7 +115,7 @@ module Zuora
 
     def create(obj)
       begin
-        response = @client.create(obj)
+        response = @client.api_call(:create,obj)
         result = save_results_to_hash(response)
       rescue Exception => e
         puts e.message
@@ -125,7 +125,7 @@ module Zuora
 
     def generate(obj)
       begin
-        response = @client.generate(obj)
+        response = @client.api_call(:generate,obj)
         result = save_results_to_hash(response)
       rescue Exception => e
         puts e.message
@@ -135,7 +135,7 @@ module Zuora
 
     def update(obj)
       begin
-        response = @client.update(obj)
+        response = @client.api_call(:update, obj)
         result = save_results_to_hash(response)
       rescue Exception => e
         puts e.message
@@ -145,7 +145,7 @@ module Zuora
 
     def delete(type, ids)
       begin
-        response = @client.delete(type, ids)
+        response = @client.api_call(:delete, type, ids)
         result = save_results_to_hash(response)
       rescue Exception => e
         puts e.message
