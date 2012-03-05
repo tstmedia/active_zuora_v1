@@ -804,11 +804,12 @@ class RatePlanCharge < ZObject
   attr_accessor :quantity
   attr_accessor :ratePlanId
   attr_accessor :tCV
+  attr_accessor :triggerDate
   attr_accessor :triggerEvent
   attr_accessor :uOM
   attr_accessor :chargedThroughDate
 
-  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, chargeModel = nil, chargeNumber = nil, chargeType = nil, description = nil, dMRC = nil, dTCV = nil, includedUnits = nil, mRR = nil, name = nil, numberOfPeriods = nil, overagePrice = nil, price = nil, productRatePlanChargeId = nil, quantity = nil, ratePlanId = nil, tCV = nil, triggerEvent = nil, uOM = nil, chargedThroughDate = nil)
+  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, chargeModel = nil, chargeNumber = nil, chargeType = nil, description = nil, dMRC = nil, dTCV = nil, includedUnits = nil, mRR = nil, name = nil, numberOfPeriods = nil, overagePrice = nil, price = nil, productRatePlanChargeId = nil, quantity = nil, ratePlanId = nil, tCV = nil, triggerDate = nil, triggerEvent = nil, uOM = nil, chargedThroughDate = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountingCode = accountingCode
@@ -828,6 +829,7 @@ class RatePlanCharge < ZObject
     @quantity = quantity
     @ratePlanId = ratePlanId
     @tCV = tCV
+    @triggerDate = triggerDate
     @triggerEvent = triggerEvent
     @uOM = uOM
     @chargedThroughDate = chargedThroughDate

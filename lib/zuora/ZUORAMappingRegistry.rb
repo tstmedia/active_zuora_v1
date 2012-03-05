@@ -398,9 +398,10 @@ module DefaultMappingRegistry
       ["quantity", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Quantity")], [0, 1]],
       ["ratePlanId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "RatePlanId")], [0, 1]],
       ["tCV", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "TCV")], [0, 1]],
+      ["triggerDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TriggerDate")], [0, 1]],
       ["triggerEvent", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "TriggerEvent")], [0, 1]],
       ["uOM", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "UOM")], [0, 1]],
-      ["chargedThroughDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargedThroughDate")], [0, 1]],
+      ["chargedThroughDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargedThroughDate")], [0, 1]]
     ]
   )
 
@@ -1040,6 +1041,7 @@ module DefaultMappingRegistry
       ["quantity", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Quantity")], [0, 1]],
       ["ratePlanId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "RatePlanId")], [0, 1]],
       ["tCV", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "TCV")], [0, 1]],
+      ["triggerDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TriggerDate")], [0, 1]],
       ["triggerEvent", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "TriggerEvent")], [0, 1]],
       ["uOM", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "UOM")], [0, 1]],
       ["chargedThroughDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargedThroughDate")], [0, 1]],
