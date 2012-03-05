@@ -421,27 +421,43 @@ class Payment < ZObject
   attr_accessor :accountId
   attr_accessor :amount
   attr_accessor :appliedInvoiceAmount
+  attr_accessor :cancelledOn
+  attr_accessor :createdDate
+  attr_accessor :gatewayResponse
+  attr_accessor :gatewayResponseCode
+  attr_accessor :gatewayState
   attr_accessor :invoiceId
   attr_accessor :comment
   attr_accessor :effectiveDate
   attr_accessor :paymentMethodId
   attr_accessor :referenceId
+  attr_accessor :refundAmount
   attr_accessor :status
+  attr_accessor :settledOn
   attr_accessor :type
+  attr_accessor :updatedDate
 
-  def initialize(fieldsToNull = [], id = nil, accountId = nil, amount = nil, appliedInvoiceAmount = nil, invoiceId = nil, comment = nil, effectiveDate = nil, paymentMethodId = nil, referenceId = nil, status = nil, type = nil)
+  def initialize(fieldsToNull = [], id = nil, accountId = nil, amount = nil, appliedInvoiceAmount = nil, cancelledOn = nil, createdDate = nil, gatewayResponse = nil, gatewayResponseCode = nil, gatewayState = nil, invoiceId = nil, comment = nil, effectiveDate = nil, paymentMethodId = nil, referenceId = nil, refundAmount = nil, status = nil, settledOn = nil, type = nil, updatedDate = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountId = accountId
     @amount = amount
     @appliedInvoiceAmount = appliedInvoiceAmount
+    @cancelledOn = cancelledOn
+    @createdDate = createdDate
+    @gatewayResponse = gatewayResponse
+    @gatewayResponseCode = gatewayResponseCode
+    @gatewayState = gatewayState
     @invoiceId = invoiceId
     @comment = comment
     @effectiveDate = effectiveDate
     @paymentMethodId = paymentMethodId
     @referenceId = referenceId
+    @refundAmount = refundAmount
     @status = status
+    @settledOn = settledOn
     @type = type
+    @updatedDate = updatedDate
   end
 end
 

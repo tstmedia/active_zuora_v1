@@ -204,13 +204,21 @@ module DefaultMappingRegistry
       ["accountId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "AccountId")], [0, 1]],
       ["amount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Amount")], [0, 1]],
       ["appliedInvoiceAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "AppliedInvoiceAmount")], [0, 1]],
+      ["cancelledOn", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "CancelledOn")], [0, 1]],
+      ["createdDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "CreatedDate")], [0, 1]],
+      ["gatewayResponse", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "GatewayResponse")], [0, 1]],
+      ["gatewayResponseCode", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "GatewayResponseCode")], [0, 1]],
+      ["gatewayState", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "GatewayState")], [0, 1]],
       ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
       ["comment", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Comment")], [0, 1]],
       ["effectiveDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "EffectiveDate")], [0, 1]],
       ["paymentMethodId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "PaymentMethodId")], [0, 1]],
       ["referenceId", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ReferenceId")], [0, 1]],
+      ["refundAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "RefundAmount")], [0, 1]],
       ["status", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Status")], [0, 1]],
-      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]]
+      ["settledOn", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "SettledOn")], [0, 1]],
+      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
+      ["updatedDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "UpdatedDate")], [0, 1]]
     ]
   )
 
@@ -842,13 +850,21 @@ module DefaultMappingRegistry
       ["accountId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "AccountId")], [0, 1]],
       ["amount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "Amount")], [0, 1]],
       ["appliedInvoiceAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "AppliedInvoiceAmount")], [0, 1]],
+      ["cancelledOn", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "CancelledOn")], [0, 1]],
+      ["createdDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "CreatedDate")], [0, 1]],
+      ["gatewayResponse", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "GatewayResponse")], [0, 1]],
+      ["gatewayResponseCode", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "GatewayResponseCode")], [0, 1]],
+      ["gatewayState", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "GatewayState")], [0, 1]],
       ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
       ["comment", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Comment")], [0, 1]],
       ["effectiveDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "EffectiveDate")], [0, 1]],
       ["paymentMethodId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "PaymentMethodId")], [0, 1]],
       ["referenceId", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ReferenceId")], [0, 1]],
+      ["refundAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "RefundAmount")], [0, 1]],
       ["status", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Status")], [0, 1]],
-      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]]
+      ["settledOn", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "SettledOn")], [0, 1]],
+      ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
+      ["updatedDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "UpdatedDate")], [0, 1]]
     ]
   )
 
