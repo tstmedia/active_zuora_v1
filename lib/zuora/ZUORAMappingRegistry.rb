@@ -161,7 +161,7 @@ module DefaultMappingRegistry
       ["fieldsToNull", "SOAP::SOAPString[]", [0, nil]],
       ["chargeAmount", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "ChargeAmount")], [0, 1]],
       ["chargeDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargeDate")], [0, 1]],
-      ["chargeDescription", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargeDescription")], [0, 1]],
+      ["chargeDescription", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ChargeDescription")], [0, 1]],
       ["chargeName", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "ChargeName")], [0, 1]],
       ["invoiceId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "InvoiceId")], [0, 1]],
       ["processingType", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "ProcessingType")], [0, 1]],
