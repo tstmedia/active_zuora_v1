@@ -316,11 +316,13 @@ class InvoiceItem < ZObject
   attr_accessor :id
   attr_accessor :chargeAmount
   attr_accessor :chargeDate
+  attr_accessor :chargeDescription
   attr_accessor :chargeName
   attr_accessor :chargeNumber
   attr_accessor :invoiceId
   attr_accessor :processingType
   attr_accessor :productId
+  attr_accessor :productDescription
   attr_accessor :productName
   attr_accessor :quantity
   attr_accessor :ratePlanChargeId
@@ -332,16 +334,18 @@ class InvoiceItem < ZObject
   attr_accessor :taxExemptAmount
   attr_accessor :unitPrice
 
-  def initialize(fieldsToNull=[], id=nil, chargeAmount=nil, chargeDate=nil, chargeName=nil, chargeNumber=nil, invoiceId=nil, processingType=nil, productId=nil, productName=nil, quantity=nil, ratePlanChargeId=nil, serviceEndDate=nil, serviceStartDate=nil, subscriptionId=nil, subscriptionNumber=nil, taxAmount=nil, taxExemptAmount=nil, unitPrice=nil)
+  def initialize(fieldsToNull=[], id=nil, chargeAmount=nil, chargeDate=nil, chargeDescription=nil, chargeName=nil, chargeNumber=nil, invoiceId=nil, processingType=nil, productId=nil, productDescription=nil, productName=nil, quantity=nil, ratePlanChargeId=nil, serviceEndDate=nil, serviceStartDate=nil, subscriptionId=nil, subscriptionNumber=nil, taxAmount=nil, taxExemptAmount=nil, unitPrice=nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @chargeAmount = chargeAmount
     @chargeDate = chargeDate
+    @chargeDescription = chargeDescription
     @chargeName = chargeName
     @chargeNumber = chargeNumber
     @invoiceId = invoiceId
     @processingType = processingType
     @productId = productId
+    @productDescription = productDescription
     @productName = productName
     @quantity = quantity
     @ratePlanChargeId = ratePlanChargeId
