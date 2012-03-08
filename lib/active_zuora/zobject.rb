@@ -94,6 +94,7 @@ module Zuora
     def self.build_filter_statments(filter_statments)
       filter_statments.map{|key, value|
         value = "'#{value}'" if value.kind_of?(String)
+        value = "null" if value.nil?
         "#{key} = #{value}"
       }.join(" and ")
     end
