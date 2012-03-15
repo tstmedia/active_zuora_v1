@@ -100,11 +100,11 @@ module Zuora
     end
 
     def self.find(id)
-      nil unless self.valid_id(id)
+      nil unless valid_id(id)
       query = "select #{query_attribute_names(:include_extras => true).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where Id = '#{id}'"
       puts query if $DEBUG
       zobject = client.query(query).first
-      self.new_from_zobject zobject if zobject
+      new_from_zobject zobject if zobject
     end
 
     def self.valid_id(id)
