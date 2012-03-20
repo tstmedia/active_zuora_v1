@@ -54,7 +54,7 @@ module Zuora
 
     def self.config
       return @config_hash if @config_hash
-      @config_hash = YAML.load_file(Zuora::CONFIG_FILE) if File.exist?(Zuora::CONFIG_FILE)
+      @config_hash = Zuora::CONFIG if defined?(Zuora::CONFIG)
       @config_hash ||= {}
     end
 
