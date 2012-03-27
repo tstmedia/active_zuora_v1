@@ -71,13 +71,18 @@ module Zuora
 
     def self.query_attribute_names(options={})
       excluded_attributes = []
-      excluded_attributes.push *self.excluded_query_attributes unless options[:include_excluded]
-      excluded_attributes.push *self.extra_attributes unless options[:include_extras]
-      self.attribute_names.reject{|name| excluded_attributes.include? name  }
+      excluded_attributes.concat excluded_query_attributes unless options[:include_excluded]
+      excluded_attributes.concat extra_attributes unless options[:include_extras]
+      attribute_names - excluded_attributes
     end
 
-    def self.excluded_query_attributes(attributes=[])
-      [:fieldsToNull] + attributes
+    def self.exclude_query_attributes(*attributes)
+      @excluded_query_attributes ||= [:fieldsToNull]
+      @excluded_query_attributes.concat attributes
+    end
+
+    def self.excluded_query_attributes
+      @excluded_query_attributes || []
     end
 
     def self.extra_attributes(attributes=[])

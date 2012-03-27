@@ -1,8 +1,7 @@
 module Zuora
   class Payment < ZObject
-    def self.excluded_query_attributes(attributes=[])
-      super([:appliedInvoiceAmount, :invoiceId])
-    end
+    
+    exclude_query_attributes :appliedInvoiceAmount, :invoiceId
 
     def account
       @account ||= Account.find(self.accountId)
