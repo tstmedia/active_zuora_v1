@@ -77,12 +77,11 @@ module Zuora
     end
 
     def self.exclude_query_attributes(*attributes)
-      @excluded_query_attributes ||= [:fieldsToNull]
-      @excluded_query_attributes.concat attributes
+      excluded_query_attributes.concat attributes
     end
 
     def self.excluded_query_attributes
-      @excluded_query_attributes || []
+      @excluded_query_attributes ||= [:fieldsToNull]
     end
 
     def self.extra_attributes(attributes=[])
