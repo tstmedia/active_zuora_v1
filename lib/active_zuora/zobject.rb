@@ -3,7 +3,7 @@ module Zuora
     def initialize(attributes={})
       super(self.class.zobject_class.new).tap do |zobject|
         attributes.each do |attr, value|
-          zobject.send("#{attr}=", value)
+          zobject.send("#{attr}=", self.class.convert_date(value))
         end
       end
     end
@@ -31,6 +31,18 @@ module Zuora
         self.class.attribute_names.each do |attr|
           hash[attr] = __getobj__.send(attr)
         end
+      end
+    end
+
+    # Any attributes that are Dates should be created as a 
+    # DateTime in the PST timezone.
+    # Zuora doesn't actually use the time portion of any Datetime field.
+    # All that matters is the date.
+    def self.convert_date(value)
+      if value.respond_to?(:year) && value.respond_to?(:month) && value.respond_to?(:day)
+        DateTime.new(value.year, value.month, value.day, 0, 0, 0, "-0800")
+      else
+        value
       end
     end
 

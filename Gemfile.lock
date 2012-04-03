@@ -3,14 +3,14 @@ GEM
   specs:
     httpclient (2.2.4)
     json_pure (1.6.5)
-    minitest (2.11.0)
     soap4r (1.5.8)
       httpclient (>= 2.1.1)
+    test-unit (2.4.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   json_pure (~> 1.4)
-  minitest
   soap4r (~> 1.5)
+  test-unit

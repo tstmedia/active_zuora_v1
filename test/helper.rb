@@ -1,6 +1,6 @@
 require 'rubygems'
-require 'test/unit'
-
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
+require 'bundler/setup'
+Bundler.require(:default, :test)
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'zuora_client'
+require 'active_zuora.rb'

@@ -4,5 +4,5 @@ gem "soap4r" , "~>1.5"
 gem "json_pure", "~>1.4"
 
 group :test do
-  gem "minitest"
+  gem "test-unit"
 end
