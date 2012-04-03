@@ -39,7 +39,7 @@ module Zuora
     # Zuora doesn't actually use the time portion of any Datetime field.
     # All that matters is the date.
     def self.convert_date(value)
-      if value.respond_to?(:year) && value.respond_to?(:month) && value.respond_to?(:day)
+      if value.is_a?(Date) || value.is_a?(DateTime) || value.is_a?(Time)
         DateTime.new(value.year, value.month, value.day, 0, 0, 0, "-0800")
       else
         value
