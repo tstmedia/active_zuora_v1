@@ -792,6 +792,8 @@ class RatePlanCharge < ZObject
   attr_accessor :fieldsToNull
   attr_accessor :id
   attr_accessor :accountingCode
+  attr_accessor :billCycleDay
+  attr_accessor :billCycleType
   attr_accessor :chargeModel
   attr_accessor :chargeNumber
   attr_accessor :chargeType
@@ -813,10 +815,12 @@ class RatePlanCharge < ZObject
   attr_accessor :uOM
   attr_accessor :chargedThroughDate
 
-  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, chargeModel = nil, chargeNumber = nil, chargeType = nil, description = nil, dMRC = nil, dTCV = nil, includedUnits = nil, mRR = nil, name = nil, numberOfPeriods = nil, overagePrice = nil, price = nil, productRatePlanChargeId = nil, quantity = nil, ratePlanId = nil, tCV = nil, triggerDate = nil, triggerEvent = nil, uOM = nil, chargedThroughDate = nil)
+  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, billCycleDay = nil, billCycleType = nil,  chargeModel = nil, chargeNumber = nil, chargeType = nil, description = nil, dMRC = nil, dTCV = nil, includedUnits = nil, mRR = nil, name = nil, numberOfPeriods = nil, overagePrice = nil, price = nil, productRatePlanChargeId = nil, quantity = nil, ratePlanId = nil, tCV = nil, triggerDate = nil, triggerEvent = nil, uOM = nil, chargedThroughDate = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountingCode = accountingCode
+    @billCycleDay = billCycleDay
+    @billCycleType = billCycleType
     @chargeModel = chargeModel
     @chargeNumber = chargeNumber
     @chargeType = chargeType
