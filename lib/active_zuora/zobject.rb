@@ -26,6 +26,10 @@ module Zuora
       __getobj__.type
     end
 
+    def ==(another)
+      id == another.id && another.respond_to?(:zobject_class) && zobject_class == another.zobject_class
+    end
+
     def attributes
       Hash.new.tap do |hash|
         self.class.attribute_names.each do |attr|
@@ -70,6 +74,10 @@ module Zuora
       else
         @zobject_class = self.superclass.respond_to?(:zobject_class) ? self.superclass.zobject_class : ZUORA.const_missing(self.klass_name)
       end
+    end
+
+    def zobject_class
+      self.class.zobject_class
     end
 
     def self.klass_name
