@@ -170,6 +170,7 @@ class Amendment < ZObject
   attr_accessor :initialTerm
   attr_accessor :name
   attr_accessor :renewalTerm
+  attr_accessor :termType
   attr_accessor :serviceActivationDate
   attr_accessor :status
   attr_accessor :subscriptionId
@@ -178,7 +179,7 @@ class Amendment < ZObject
   attr_accessor :type
   attr_accessor :ratePlanData
 
-  def initialize(fieldsToNull = [], id = nil, contractEffectiveDate = nil, customerAcceptanceDate = nil, description = nil, effectiveDate = nil, initialTerm = nil, name = nil, renewalTerm = nil, serviceActivationDate = nil, status = nil, subscriptionId = nil, termCommitment = nil, termStartDate = nil, type = nil, ratePlanData =[])
+  def initialize(fieldsToNull = [], id = nil, contractEffectiveDate = nil, customerAcceptanceDate = nil, description = nil, effectiveDate = nil, initialTerm = nil, name = nil, renewalTerm = nil, termType = nil, serviceActivationDate = nil, status = nil, subscriptionId = nil, termCommitment = nil, termStartDate = nil, type = nil, ratePlanData =[])
     @fieldsToNull = fieldsToNull
     @id = id
     @contractEffectiveDate = contractEffectiveDate
@@ -188,6 +189,7 @@ class Amendment < ZObject
     @initialTerm = initialTerm
     @name = name
     @renewalTerm = renewalTerm
+    @termType = termType
     @serviceActivationDate = serviceActivationDate
     @status = status
     @subscriptionId = subscriptionId
