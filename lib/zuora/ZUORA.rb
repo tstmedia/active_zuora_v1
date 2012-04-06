@@ -157,7 +157,6 @@ end
 #   serviceActivationDate - SOAP::SOAPDateTime
 #   status - SOAP::SOAPString
 #   subscriptionId - (any)
-#   termCommitment - SOAP::SOAPString
 #   termStartDate - SOAP::SOAPDateTime
 #   type - SOAP::SOAPString
 class Amendment < ZObject
@@ -174,12 +173,11 @@ class Amendment < ZObject
   attr_accessor :serviceActivationDate
   attr_accessor :status
   attr_accessor :subscriptionId
-  attr_accessor :termCommitment
   attr_accessor :termStartDate
   attr_accessor :type
   attr_accessor :ratePlanData
 
-  def initialize(fieldsToNull = [], id = nil, contractEffectiveDate = nil, customerAcceptanceDate = nil, description = nil, effectiveDate = nil, initialTerm = nil, name = nil, renewalTerm = nil, termType = nil, serviceActivationDate = nil, status = nil, subscriptionId = nil, termCommitment = nil, termStartDate = nil, type = nil, ratePlanData =[])
+  def initialize(fieldsToNull = [], id = nil, contractEffectiveDate = nil, customerAcceptanceDate = nil, description = nil, effectiveDate = nil, initialTerm = nil, name = nil, renewalTerm = nil, termType = nil, serviceActivationDate = nil, status = nil, subscriptionId = nil, termStartDate = nil, type = nil, ratePlanData =[])
     @fieldsToNull = fieldsToNull
     @id = id
     @contractEffectiveDate = contractEffectiveDate
@@ -193,7 +191,6 @@ class Amendment < ZObject
     @serviceActivationDate = serviceActivationDate
     @status = status
     @subscriptionId = subscriptionId
-    @termCommitment = termCommitment
     @termStartDate = termStartDate
     @type = type
     @ratePlanData = ratePlanData

@@ -98,7 +98,6 @@ module DefaultMappingRegistry
       ["serviceActivationDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ServiceActivationDate")], [0, 1]],
       ["status", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Status")], [0, 1]],
       ["subscriptionId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "SubscriptionId")], [0, 1]],
-      ["termCommitment", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "TermCommitment")], [0, 1]],
       ["termStartDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TermStartDate")], [0, 1]],
       ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
       ["ratePlanData", ["ZUORA::RatePlanData", XSD::QName.new(NsObjectApiZuoraCom, "RatePlanData")], [0, 1]]
@@ -758,7 +757,6 @@ module DefaultMappingRegistry
       ["serviceActivationDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ServiceActivationDate")], [0, 1]],
       ["status", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Status")], [0, 1]],
       ["subscriptionId", [nil, XSD::QName.new(NsObjectApiZuoraCom, "SubscriptionId")], [0, 1]],
-      ["termCommitment", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "TermCommitment")], [0, 1]],
       ["termStartDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TermStartDate")], [0, 1]],
       ["type", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Type")], [0, 1]],
       ["ratePlanData", ["ZUORA::RatePlanData", XSD::QName.new(NsObjectApiZuoraCom, "RatePlanData")], [0, 1]]
