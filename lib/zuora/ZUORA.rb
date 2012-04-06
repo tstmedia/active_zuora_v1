@@ -147,6 +147,7 @@ end
 # {http://object.api.zuora.com/}Amendment
 #   fieldsToNull - SOAP::SOAPString
 #   id - (any)
+#   autoRenew - SOAP::SOAPBoolean
 #   contractEffectiveDate - SOAP::SOAPDateTime
 #   customerAcceptanceDate - SOAP::SOAPDateTime
 #   description - SOAP::SOAPString
@@ -162,6 +163,7 @@ end
 class Amendment < ZObject
   attr_accessor :fieldsToNull
   attr_accessor :id
+  attr_accessor :autoRenew
   attr_accessor :contractEffectiveDate
   attr_accessor :customerAcceptanceDate
   attr_accessor :description
@@ -177,9 +179,10 @@ class Amendment < ZObject
   attr_accessor :type
   attr_accessor :ratePlanData
 
-  def initialize(fieldsToNull = [], id = nil, contractEffectiveDate = nil, customerAcceptanceDate = nil, description = nil, effectiveDate = nil, initialTerm = nil, name = nil, renewalTerm = nil, termType = nil, serviceActivationDate = nil, status = nil, subscriptionId = nil, termStartDate = nil, type = nil, ratePlanData =[])
+  def initialize(fieldsToNull = [], id = nil, autoRenew = nil, contractEffectiveDate = nil, customerAcceptanceDate = nil, description = nil, effectiveDate = nil, initialTerm = nil, name = nil, renewalTerm = nil, termType = nil, serviceActivationDate = nil, status = nil, subscriptionId = nil, termStartDate = nil, type = nil, ratePlanData =[])
     @fieldsToNull = fieldsToNull
     @id = id
+    @autoRenew = autoRenew
     @contractEffectiveDate = contractEffectiveDate
     @customerAcceptanceDate = customerAcceptanceDate
     @description = description

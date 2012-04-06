@@ -87,6 +87,7 @@ module DefaultMappingRegistry
     :schema_element => [
       ["fieldsToNull", "SOAP::SOAPString[]", [0, nil]],
       ["id", [nil, XSD::QName.new(NsObjectApiZuoraCom, "Id")], [0, 1]],
+      ["autoRenew", ["SOAP::SOAPBoolean", XSD::QName.new(NsObjectApiZuoraCom, "AutoRenew")], [0, 1]],
       ["contractEffectiveDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ContractEffectiveDate")], [0, 1]],
       ["customerAcceptanceDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "CustomerAcceptanceDate")], [0, 1]],
       ["description", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Description")], [0, 1]],
@@ -746,6 +747,7 @@ module DefaultMappingRegistry
     :schema_element => [
       ["fieldsToNull", "SOAP::SOAPString[]", [0, nil]],
       ["id", [nil, XSD::QName.new(NsObjectApiZuoraCom, "Id")], [0, 1]],
+      ["autoRenew", ["SOAP::SOAPBoolean", XSD::QName.new(NsObjectApiZuoraCom, "AutoRenew")], [0, 1]],
       ["contractEffectiveDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ContractEffectiveDate")], [0, 1]],
       ["customerAcceptanceDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "CustomerAcceptanceDate")], [0, 1]],
       ["description", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Description")], [0, 1]],
