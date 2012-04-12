@@ -15,5 +15,21 @@ module Zuora
       (quantity || 1) * price
     end
 
+    def list_price
+      product_rate_plan_charge.product_rate_plan_charge_tiers.first.price
+    end
+
+    def total_list_price
+      (quantity || 1) * list_price
+    end
+
+    def discount?
+      price < list_price
+    end
+
+    def discount_percent
+      list_price.zero? ? nil : (1 - price / list_price) * 100
+    end
+
   end
 end
