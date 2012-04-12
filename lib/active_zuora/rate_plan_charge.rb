@@ -10,5 +10,10 @@ module Zuora
     def product_rate_plan_charge
       @product_rate_plan_charge ||= ProductRatePlanCharge.find(self.productRatePlanChargeId)
     end
+
+    def total_price
+      (quantity || 1) * price
+    end
+
   end
 end
