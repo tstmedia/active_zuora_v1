@@ -895,6 +895,7 @@ end
 #   serviceActivationDate - SOAP::SOAPDateTime
 #   status - SOAP::SOAPString
 #   termStartDate - SOAP::SOAPDateTime
+#   termEndDate - SOAP::SOAPDateTime
 #   version - SOAP::SOAPInt
 class Subscription < ZObject
   attr_accessor :fieldsToNull
@@ -915,10 +916,11 @@ class Subscription < ZObject
   attr_accessor :subscriptionEndDate
   attr_accessor :status
   attr_accessor :termStartDate
+  attr_accessor :termEndDate
   attr_accessor :termType
   attr_accessor :version
 
-  def initialize(fieldsToNull = [], id = nil, accountId = nil, autoRenew = nil, cancelledDate = nil, createdDate = nil, contractAcceptanceDate = nil, contractEffectiveDate = nil, initialTerm = nil, name = nil, notes = nil, originalId = nil, previousSubscriptionId = nil, renewalTerm = nil, serviceActivationDate = nil, subscriptionEndDate = nil, status = nil, termStartDate = nil, termType = nil, version = nil)
+  def initialize(fieldsToNull = [], id = nil, accountId = nil, autoRenew = nil, cancelledDate = nil, createdDate = nil, contractAcceptanceDate = nil, contractEffectiveDate = nil, initialTerm = nil, name = nil, notes = nil, originalId = nil, previousSubscriptionId = nil, renewalTerm = nil, serviceActivationDate = nil, subscriptionEndDate = nil, status = nil, termStartDate = nil, termEndDate = nil, termType = nil, version = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountId = accountId
@@ -937,6 +939,7 @@ class Subscription < ZObject
     @subscriptionEndDate= subscriptionEndDate
     @status = status
     @termStartDate = termStartDate
+    @termEndDate = termEndDate
     @termType = termType
     @version = version
   end

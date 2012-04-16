@@ -449,6 +449,7 @@ module DefaultMappingRegistry
       ["subscriptionEndDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "SubscriptionEndDate")], [0, 1]],
       ["status", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Status")], [0, 1]],
       ["termStartDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TermStartDate")], [0, 1]],
+      ["termEndDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TermEndDate")], [0, 1]],
       ["version", ["SOAP::SOAPInt", XSD::QName.new(NsObjectApiZuoraCom, "Version")], [0, 1]]
     ]
   )
@@ -1125,6 +1126,7 @@ module DefaultMappingRegistry
       ["subscriptionEndDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "SubscriptionEndDate")], [0, 1]],
       ["status", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Status")], [0, 1]],
       ["termStartDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TermStartDate")], [0, 1]],
+      ["termEndDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TermEndDate")], [0, 1]],
       ["termType", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "TermType")], [0, 1]],
       ["version", ["SOAP::SOAPInt", XSD::QName.new(NsObjectApiZuoraCom, "Version")], [0, 1]]
     ]
