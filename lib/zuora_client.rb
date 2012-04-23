@@ -89,19 +89,23 @@ module Zuora
     end
 
     def query(query_string)
+      # This will keep calling queryMore until all the results are retreived.
 
       query_string =~ /select\s+(.+)\s+from/i
       fields = ($1.split /,\s+/).map do |f|
         f.gsub!(/\b\w/) { $&.downcase }
       end
 
+      responses = []
       begin
-        response = @client.api_call(:query,query_string)
+        responses << @client.api_call(:query, query_string)
+        until responses.last.result.done
+          responses << @client.api_call(:query_more, responses.last.result.queryLocator)
+        end
       rescue Exception => e
-        puts e.message
+        $stderr.puts e.message
       end
-
-      response && response.result.size > 0 ? response.result.records : []
+      responses.map{ |response| response.result.records }.flatten
     end
 
     def subscribe(obj)

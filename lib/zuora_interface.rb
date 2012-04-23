@@ -104,11 +104,12 @@ class ZuoraInterface
     SysTimer.timeout(120) { self.send(call, *args) }
   end
 
-  def query(query)
-    q = ZUORA::Query.new
-    q.queryString = query
-    results = @z.query(q)
-    return results
+  def query(query_string)
+    @z.query(ZUORA::Query.new(query_string))
+  end
+
+  def query_more(query_locator)    
+    @z.queryMore(ZUORA::QueryMore.new(query_locator))
   end
 
   def create(objs)

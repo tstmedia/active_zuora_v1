@@ -1404,6 +1404,26 @@ class QueryResponse
   end
 end
 
+# {http://api.zuora.com/}queryMore
+#   queryLocator - SOAP::SOAPString
+class QueryMore
+  attr_accessor :queryLocator
+
+  def initialize(queryLocator = nil)
+    @queryLocator = queryLocator
+  end
+end
+
+# {http://api.zuora.com/}queryMoreResponse
+#   result - ZUORA::QueryResult
+class QueryMoreResponse
+  attr_accessor :result
+
+  def initialize(result = nil)
+    @result = result
+  end
+end
+
 # {http://api.zuora.com/}SessionHeader
 #   session - SOAP::SOAPString
 class SessionHeader

@@ -62,6 +62,14 @@ class Soap < ::SOAP::RPC::Driver
         :faults => {"ZUORA::InvalidQueryLocatorFault_"=>{:name=>"InvalidQueryLocatorFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}, "ZUORA::MalformedQueryFault_"=>{:name=>"MalformedQueryFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}, "ZUORA::UnexpectedErrorFault_"=>{:name=>"UnexpectedErrorFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}} }
     ],
     [ "",
+      "queryMore",
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "queryMore"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "queryMoreResponse"]] ],
+      { :request_style =>  :document, :request_use =>  :literal,
+        :response_style => :document, :response_use => :literal,
+        :faults => {"ZUORA::InvalidQueryLocatorFault_"=>{:name=>"InvalidQueryLocatorFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}, "ZUORA::MalformedQueryFault_"=>{:name=>"MalformedQueryFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}, "ZUORA::UnexpectedErrorFault_"=>{:name=>"UnexpectedErrorFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}} }
+    ],
+    [ "",
       "delete",
       [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "delete"]],
         ["out", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "deleteResponse"]] ],

@@ -1476,6 +1476,22 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => ZUORA::QueryMore,
+    :schema_name => XSD::QName.new(NsApiZuoraCom, "queryMore"),
+    :schema_element => [
+      ["queryLocator", "SOAP::SOAPString"]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::QueryMoreResponse,
+    :schema_name => XSD::QName.new(NsApiZuoraCom, "queryMoreResponse"),
+    :schema_element => [
+      ["result", "ZUORA::QueryResult"]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => ZUORA::SessionHeader,
     :schema_name => XSD::QName.new(NsApiZuoraCom, "SessionHeader"),
     :schema_element => [
