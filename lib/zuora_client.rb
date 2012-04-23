@@ -105,7 +105,8 @@ module Zuora
       rescue Exception => e
         $stderr.puts e.message
       end
-      responses.map{ |response| response.result.records }.flatten
+      # Capture all the records into one single array.
+      responses.map{ |response| response.result.size > 0 ? response.result.records : [] }.flatten
     end
 
     def subscribe(obj)
