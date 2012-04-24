@@ -109,7 +109,9 @@ module Zuora
     end
 
     def self.where(conditions={}, options={})
-      query = "select #{self.query_attribute_names(options).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{build_filter_statments(conditions)}"
+      # You can give a hash or a string for the conditions
+      conditions = build_filter_statments(conditions) if conditions.is_a? Hash
+      query = "select #{self.query_attribute_names(options).join(", ")} from #{self.name.gsub(/Zuora::/,"")} where #{conditions}"
       puts query if $DEBUG
       zobjects = self.client.query(query)
       zobjects.map{|zobject| self.new_from_zobject zobject }
