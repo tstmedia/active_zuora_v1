@@ -39,7 +39,8 @@ module Zuora
     end
 
     def payments
-      @payments ||= InvoicePayment.where(:invoiceId => self.id).map(&:payment)
+      # Payments, sorted by date.
+      @payments ||= InvoicePayment.where(:invoiceId => self.id).map(&:payment).sort { |a, b| a.effectiveDate <=> b.effectiveDate }
     end
   end
 end
