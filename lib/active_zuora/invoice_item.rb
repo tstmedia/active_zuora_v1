@@ -2,7 +2,7 @@ module Zuora
   class InvoiceItem < ZObject
 
     def invoice
-      @invoice ||= Invoice.find(invoiceItemId)
+      @invoice ||= Invoice.find(invoiceId)
     end
 
     def adjustments
