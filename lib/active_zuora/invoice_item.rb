@@ -5,6 +5,10 @@ module Zuora
       @invoice ||= Invoice.find(invoiceId)
     end
 
+    def rate_plan_charge
+      @rate_plan_charge ||= RatePlanCharge.find(ratePlanChargeId)
+    end
+
     def adjustments
       @adjustments ||= InvoiceItemAdjustment.where(:sourceType => 'InvoiceDetail', :sourceId => id)
     end
