@@ -1076,12 +1076,10 @@ end
 #   ratePlanCharge - ZUORA::RatePlanCharge
 class RatePlanData
   attr_accessor :ratePlan
-  attr_accessor :ratePlanCharge
   attr_accessor :ratePlanChargeData
 
-  def initialize(ratePlan = nil, ratePlanCharge = nil, ratePlanChargeData = [])
+  def initialize(ratePlan = nil, ratePlanChargeData = [])
     @ratePlan = ratePlan
-    @ratePlanCharge = ratePlanCharge
     @ratePlanChargeData = ratePlanChargeData
   end
 end
@@ -1126,6 +1124,26 @@ class SubscribeResult
     @paymentTransactionNumber = paymentTransactionNumber
     @subscriptionId = subscriptionId
     @subscriptionNumber = subscriptionNumber
+    @success = success
+  end
+end
+
+class AmendRequest
+  attr_accessor :amendment
+
+  def initialize(amendment = nil)
+    @amendment = amendment
+  end
+end
+
+class AmendResult
+  attr_accessor :amendmentIds
+  attr_accessor :errors
+  attr_accessor :success
+
+  def initialize(amendmentIds = [], errors = [], success = nil)
+    @amendmentIds = amendmentIds
+    @errors = errors
     @success = success
   end
 end
@@ -1341,6 +1359,12 @@ end
 
 # {http://api.zuora.com/}subscribeResponse
 class SubscribeResponse < ::Array
+end
+
+class Amend < ::Array
+end
+
+class AmendResponse < ::Array
 end
 
 # {http://api.zuora.com/}create

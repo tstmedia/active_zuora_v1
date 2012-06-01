@@ -158,6 +158,10 @@ module Zuora
       result || []
     end
 
+    def amend(obj)
+      @client.api_call(:amend, obj)
+    end
+
     private
 
     def save_results_to_hash(save_results)

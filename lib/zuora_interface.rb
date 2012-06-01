@@ -135,6 +135,10 @@ class ZuoraInterface
     return @z.subscribe(sub)
   end
 
+  def amend(amend)
+    return @z.amend(amend)
+  end
+
   def get_object(query)
     object = lookup(query)
     unless object.result.size == 0

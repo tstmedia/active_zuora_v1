@@ -22,6 +22,14 @@ class Soap < ::SOAP::RPC::Driver
         :faults => {"ZUORA::UnexpectedErrorFault_"=>{:name=>"UnexpectedErrorFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}} }
     ],
     [ "",
+      "amend",
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "amend"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "amendResponse"]] ],
+      { :request_style =>  :document, :request_use =>  :literal,
+        :response_style => :document, :response_use => :literal,
+        :faults => {"ZUORA::UnexpectedErrorFault_"=>{:name=>"UnexpectedErrorFault", :encodingstyle=>"document", :ns=>"http://api.zuora.com/", :use=>"literal", :namespace=>nil}} }
+    ],
+    [ "",
       "subscribeWithExistingAccount",
       [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "subscribeWithExistingAccount"]],
         ["out", "parameters", ["::SOAP::SOAPElement", "http://api.zuora.com/", "subscribeResponse"]] ],
@@ -86,7 +94,7 @@ class Soap < ::SOAP::RPC::Driver
     streamhandler.client.receive_timeout = 360
     self.mapping_registry = DefaultMappingRegistry::EncodedRegistry
     self.literal_mapping_registry = DefaultMappingRegistry::LiteralRegistry
-    self.wiredump_file_base = "/tmp/zuora" if $DEBUG
+    self.wiredump_dev = STDERR if $DEBUG || ENV['DEBUG']
   end
 
 

@@ -530,7 +530,6 @@ module DefaultMappingRegistry
     :schema_type => XSD::QName.new(NsApiZuoraCom, "RatePlanData"),
     :schema_element => [
       ["ratePlan", ["ZUORA::RatePlan", XSD::QName.new(NsApiZuoraCom, "RatePlan")], [0, 1]],
-      ["ratePlanCharge", ["ZUORA::RatePlanCharge[]", XSD::QName.new(NsApiZuoraCom, "RatePlanCharge")], [0, nil]],
       ["ratePlanChargeData", ["ZUORA::RatePlanChargeData[]", XSD::QName.new(NsApiZuoraCom, "RatePlanChargeData")], [0, nil]]
     ]
   )
@@ -556,6 +555,24 @@ module DefaultMappingRegistry
       ["paymentTransactionNumber", ["SOAP::SOAPString", XSD::QName.new(NsApiZuoraCom, "PaymentTransactionNumber")], [0, 1]],
       ["subscriptionId", [nil, XSD::QName.new(NsApiZuoraCom, "SubscriptionId")], [0, 1]],
       ["subscriptionNumber", ["SOAP::SOAPString", XSD::QName.new(NsApiZuoraCom, "SubscriptionNumber")], [0, 1]],
+      ["success", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "Success")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => ZUORA::AmendRequest,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendRequest"),
+    :schema_element => [
+      ["amendment", ["ZUORA::Amendment", XSD::QName.new(NsApiZuoraCom, "Amendments")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => ZUORA::AmendResult,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendResult"),
+    :schema_element => [
+      ["amendmentIds", [nil, XSD::QName.new(NsApiZuoraCom, "AmendmentIds")], [0, nil]],
+      ["errors", ["ZUORA::Error[]", XSD::QName.new(NsApiZuoraCom, "Errors")], [0, nil]],
       ["success", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "Success")], [0, 1]]
     ]
   )
@@ -1208,7 +1225,6 @@ module DefaultMappingRegistry
     :schema_type => XSD::QName.new(NsApiZuoraCom, "RatePlanData"),
     :schema_element => [
       ["ratePlan", ["ZUORA::RatePlan", XSD::QName.new(NsApiZuoraCom, "RatePlan")], [0, 1]],
-      ["ratePlanCharge", ["ZUORA::RatePlanCharge[]", XSD::QName.new(NsApiZuoraCom, "RatePlanCharge")], [0, nil]],
       ["ratePlanChargeData", ["ZUORA::RatePlanChargeData[]", XSD::QName.new(NsApiZuoraCom, "RatePlanChargeData")], [0, nil]]
     ]
   )
@@ -1234,6 +1250,24 @@ module DefaultMappingRegistry
       ["paymentTransactionNumber", ["SOAP::SOAPString", XSD::QName.new(NsApiZuoraCom, "PaymentTransactionNumber")], [0, 1]],
       ["subscriptionId", [nil, XSD::QName.new(NsApiZuoraCom, "SubscriptionId")], [0, 1]],
       ["subscriptionNumber", ["SOAP::SOAPString", XSD::QName.new(NsApiZuoraCom, "SubscriptionNumber")], [0, 1]],
+      ["success", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "Success")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::AmendRequest,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendRequest"),
+    :schema_element => [
+      ["amendment", ["ZUORA::Amendment", XSD::QName.new(NsApiZuoraCom, "Amendments")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::AmendResult,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendResult"),
+    :schema_element => [
+      ["amendmentIds", [nil, XSD::QName.new(NsApiZuoraCom, "AmendmentIds")], [0, nil]],
+      ["errors", ["ZUORA::Error[]", XSD::QName.new(NsApiZuoraCom, "Errors")], [0, nil]],
       ["success", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "Success")], [0, 1]]
     ]
   )
@@ -1391,6 +1425,22 @@ module DefaultMappingRegistry
     :schema_name => XSD::QName.new(NsApiZuoraCom, "subscribeResponse"),
     :schema_element => [
       ["result", "ZUORA::SubscribeResult[]", [0, nil]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::Amend,
+    :schema_name => XSD::QName.new(NsApiZuoraCom, "amend"),
+    :schema_element => [
+      ["requests", "ZUORA::AmendRequest[]", [0, nil]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::AmendResponse,
+    :schema_name => XSD::QName.new(NsApiZuoraCom, "amendResponse"),
+    :schema_element => [
+      ["results", "ZUORA::AmendResult[]", [0, nil]]
     ]
   )
 
