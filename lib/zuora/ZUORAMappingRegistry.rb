@@ -563,7 +563,36 @@ module DefaultMappingRegistry
     :class => ZUORA::AmendRequest,
     :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendRequest"),
     :schema_element => [
-      ["amendment", ["ZUORA::Amendment", XSD::QName.new(NsApiZuoraCom, "Amendments")], [0, 1]]
+      ["amendment", ["ZUORA::Amendment", XSD::QName.new(NsApiZuoraCom, "Amendments")], [0, 1]],
+      ["amendOptions", ["ZUORA::AmendOptions", XSD::QName.new(NsApiZuoraCom, "AmendOptions")], [0, 1]],
+      ["previewOptions", ["ZUORA::PreviewOptions", XSD::QName.new(NsApiZuoraCom, "PreviewOptions")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => ZUORA::AmendOptions,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendOptions"),
+    :schema_element => [
+      ["generateInvoice", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "GenerateInvoice")], [0, 1]],
+      ["invoiceProcessingOptions", ["ZUORA::InvoiceProcessingOptions", XSD::QName.new(NsApiZuoraCom, "InvoiceProcessingOptions")], [0, 1]],
+      ["processPayments", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "ProcessPayments")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => ZUORA::InvoiceProcessingOptions,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "InvoiceProcessingOptions"),
+    :schema_element => [
+      ["invoiceTargetDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsApiZuoraCom, "InvoiceTargetDate")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => ZUORA::PreviewOptions,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "PreviewOptions"),
+    :schema_element => [
+      ["enablePreviewMode", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "EnablePreviewMode")], [0, 1]],
+      ["numberOfPeriods", ["SOAP::SOAPInt", XSD::QName.new(NsApiZuoraCom, "NumberOfPeriods")], [0, 1]]
     ]
   )
 
@@ -1258,7 +1287,36 @@ module DefaultMappingRegistry
     :class => ZUORA::AmendRequest,
     :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendRequest"),
     :schema_element => [
-      ["amendment", ["ZUORA::Amendment", XSD::QName.new(NsApiZuoraCom, "Amendments")], [0, 1]]
+      ["amendment", ["ZUORA::Amendment", XSD::QName.new(NsApiZuoraCom, "Amendments")], [0, 1]],
+      ["amendOptions", ["ZUORA::AmendOptions", XSD::QName.new(NsApiZuoraCom, "AmendOptions")], [0, 1]],
+      ["previewOptions", ["ZUORA::PreviewOptions", XSD::QName.new(NsApiZuoraCom, "PreviewOptions")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::AmendOptions,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "AmendOptions"),
+    :schema_element => [
+      ["generateInvoice", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "GenerateInvoice")], [0, 1]],
+      ["invoiceProcessingOptions", ["ZUORA::InvoiceProcessingOptions", XSD::QName.new(NsApiZuoraCom, "InvoiceProcessingOptions")], [0, 1]],
+      ["processPayments", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "ProcessPayments")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::InvoiceProcessingOptions,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "InvoiceProcessingOptions"),
+    :schema_element => [
+      ["invoiceTargetDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsApiZuoraCom, "InvoiceTargetDate")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => ZUORA::PreviewOptions,
+    :schema_type => XSD::QName.new(NsApiZuoraCom, "PreviewOptions"),
+    :schema_element => [
+      ["enablePreviewMode", ["SOAP::SOAPBoolean", XSD::QName.new(NsApiZuoraCom, "EnablePreviewMode")], [0, 1]],
+      ["numberOfPeriods", ["SOAP::SOAPInt", XSD::QName.new(NsApiZuoraCom, "NumberOfPeriods")], [0, 1]]
     ]
   )
 

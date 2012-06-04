@@ -1129,10 +1129,35 @@ class SubscribeResult
 end
 
 class AmendRequest
-  attr_accessor :amendment
+  attr_accessor :amendment, :amendOptions, :previewOptions
 
-  def initialize(amendment = nil)
-    @amendment = amendment
+  def initialize(amendment = nil, amendOptions = nil, previewOptions = nil)
+    @amendment, @amendOptions, @previewOptions = amendment, amendOptions, previewOptions
+  end
+end
+
+class AmendOptions
+  attr_accessor :generateInvoice, :invoiceProcessingOptions, :processPayments
+
+  def initialize(generateInvoice = nil, invoiceProcessingOptions = nil, processPayments = nil)
+    @generateInvoice, @invoiceProcessingOptions, @processPayments = 
+      generateInvoice, invoiceProcessingOptions, processPayments
+  end
+end
+
+class InvoiceProcessingOptions
+  attr_accessor :invoiceTargetDate
+
+  def initialize(invoiceTargetDate = nil)
+    @invoiceTargetDate = invoiceTargetDate
+  end
+end
+
+class PreviewOptions
+  attr_accessor :enablePreviewMode, :numberOfPeriods
+
+  def initialize(enablePreviewMode = nil, numberOfPeriods = nil)
+    @enablePreviewMode, @numberOfPeriods = enablePreviewMode, numberOfPeriods
   end
 end
 
