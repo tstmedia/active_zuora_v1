@@ -803,6 +803,7 @@ class RatePlanCharge < ZObject
   attr_accessor :dMRC
   attr_accessor :dTCV
   attr_accessor :includedUnits
+  attr_accessor :isLastSegment
   attr_accessor :mRR
   attr_accessor :name
   attr_accessor :numberOfPeriods
@@ -817,7 +818,7 @@ class RatePlanCharge < ZObject
   attr_accessor :uOM
   attr_accessor :chargedThroughDate
 
-  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, billCycleDay = nil, billCycleType = nil,  chargeModel = nil, chargeNumber = nil, chargeType = nil, description = nil, dMRC = nil, dTCV = nil, includedUnits = nil, mRR = nil, name = nil, numberOfPeriods = nil, overagePrice = nil, price = nil, productRatePlanChargeId = nil, quantity = nil, ratePlanId = nil, tCV = nil, triggerDate = nil, triggerEvent = nil, uOM = nil, chargedThroughDate = nil)
+  def initialize(fieldsToNull = [], id = nil, accountingCode = nil, billCycleDay = nil, billCycleType = nil,  chargeModel = nil, chargeNumber = nil, chargeType = nil, description = nil, dMRC = nil, dTCV = nil, includedUnits = nil, isLastSegment = nil, mRR = nil, name = nil, numberOfPeriods = nil, overagePrice = nil, price = nil, productRatePlanChargeId = nil, quantity = nil, ratePlanId = nil, tCV = nil, triggerDate = nil, triggerEvent = nil, uOM = nil, chargedThroughDate = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountingCode = accountingCode
@@ -830,6 +831,7 @@ class RatePlanCharge < ZObject
     @dMRC = dMRC
     @dTCV = dTCV
     @includedUnits = includedUnits
+    @isLastSegment = isLastSegment
     @mRR = mRR
     @name = name
     @numberOfPeriods = numberOfPeriods

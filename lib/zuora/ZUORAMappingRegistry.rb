@@ -394,6 +394,7 @@ module DefaultMappingRegistry
       ["dMRC", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "DMRC")], [0, 1]],
       ["dTCV", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "DTCV")], [0, 1]],
       ["includedUnits", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "IncludedUnits")], [0, 1]],
+      ["isLastSegment", ["SOAP::SOAPBoolean", XSD::QName.new(NsObjectApiZuoraCom, "IsLastSegment")], [0, 1]],
       ["mRR", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "MRR")], [0, 1]],
       ["name", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Name")], [0, 1]],
       ["numberOfPeriods", ["SOAP::SOAPLong", XSD::QName.new(NsObjectApiZuoraCom, "NumberOfPeriods")], [0, 1]],
@@ -1116,6 +1117,7 @@ module DefaultMappingRegistry
       ["dMRC", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "DMRC")], [0, 1]],
       ["dTCV", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "DTCV")], [0, 1]],
       ["includedUnits", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "IncludedUnits")], [0, 1]],
+      ["isLastSegment", ["SOAP::SOAPBoolean", XSD::QName.new(NsObjectApiZuoraCom, "IsLastSegment")], [0, 1]],
       ["mRR", ["SOAP::SOAPDouble", XSD::QName.new(NsObjectApiZuoraCom, "MRR")], [0, 1]],
       ["name", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "Name")], [0, 1]],
       ["numberOfPeriods", ["SOAP::SOAPLong", XSD::QName.new(NsObjectApiZuoraCom, "NumberOfPeriods")], [0, 1]],
@@ -1128,7 +1130,7 @@ module DefaultMappingRegistry
       ["triggerDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "TriggerDate")], [0, 1]],
       ["triggerEvent", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "TriggerEvent")], [0, 1]],
       ["uOM", ["SOAP::SOAPString", XSD::QName.new(NsObjectApiZuoraCom, "UOM")], [0, 1]],
-      ["chargedThroughDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargedThroughDate")], [0, 1]],
+      ["chargedThroughDate", ["SOAP::SOAPDateTime", XSD::QName.new(NsObjectApiZuoraCom, "ChargedThroughDate")], [0, 1]]
     ]
   )
 
