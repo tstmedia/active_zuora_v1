@@ -965,7 +965,9 @@ class Usage < ZObject
   attr_accessor :fieldsToNull
   attr_accessor :id
   attr_accessor :accountId
+  attr_accessor :chargeId
   attr_accessor :chargeNumber
+  attr_accessor :description
   attr_accessor :endDateTime
   attr_accessor :quantity
   attr_accessor :rbeStatus
@@ -976,11 +978,13 @@ class Usage < ZObject
   attr_accessor :subscriptionNumber
   attr_accessor :uOM
 
-  def initialize(fieldsToNull = [], id = nil, accountId = nil, chargeNumber = nil, endDateTime = nil, quantity = nil, rbeStatus = nil, sourceName = nil, sourceType = nil, startDateTime = nil, submissionDateTime = nil, subscriptionNumber = nil, uOM = nil)
+  def initialize(fieldsToNull = [], id = nil, accountId = nil, chargeId = nil, chargeNumber = nil, description = nil, endDateTime = nil, quantity = nil, rbeStatus = nil, sourceName = nil, sourceType = nil, startDateTime = nil, submissionDateTime = nil, subscriptionNumber = nil, uOM = nil)
     @fieldsToNull = fieldsToNull
     @id = id
     @accountId = accountId
+    @chargeId = chargeId
     @chargeNumber = chargeNumber
+    @description = description
     @endDateTime = endDateTime
     @quantity = quantity
     @rbeStatus = rbeStatus
