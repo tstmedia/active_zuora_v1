@@ -11,6 +11,15 @@ module Zuora
       @product_rate_plan_charge ||= ProductRatePlanCharge.find(self.productRatePlanChargeId)
     end
 
+    def usages
+      @usages ||= Usage.where(:chargeId => id)
+    end
+
+    def unload_usages
+      @usages = nil
+      self
+    end
+
     def total_price
       (quantity || 1) * price
     end
