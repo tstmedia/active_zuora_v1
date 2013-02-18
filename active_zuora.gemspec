@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "active_zuora"
-  s.version = "1.3.0"
+  s.version = "1.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["anfleene"]
-  s.date = "2012-01-24"
+  s.date = "2013-02-18"
   s.description = "A client for Zuora API"
   s.email = "anfleene@gmail.com"
   s.extra_rdoc_files = [
@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
     "lib/active_zuora/product_rate_plan_charge_tier_data.rb",
     "lib/active_zuora/rate_plan.rb",
     "lib/active_zuora/rate_plan_charge.rb",
+    "lib/active_zuora/rate_plan_charge_data.rb",
     "lib/active_zuora/rate_plan_charge_tier.rb",
     "lib/active_zuora/rate_plan_data.rb",
     "lib/active_zuora/refund.rb",
@@ -60,20 +61,32 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/anfleene/active_zuora"
   s.require_paths = ["lib"]
   s.requirements = ["none"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "Active Zuora"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<soap4r>, ["~> 1.5"])
+      s.add_runtime_dependency(%q<json_pure>, ["~> 1.4"])
+      s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_runtime_dependency(%q<soap4r>, [">= 1.5.8"])
       s.add_runtime_dependency(%q<json_pure>, [">= 1.4.6"])
     else
+      s.add_dependency(%q<soap4r>, ["~> 1.5"])
+      s.add_dependency(%q<json_pure>, ["~> 1.4"])
+      s.add_dependency(%q<rake>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<soap4r>, [">= 1.5.8"])
       s.add_dependency(%q<json_pure>, [">= 1.4.6"])
     end
   else
+    s.add_dependency(%q<soap4r>, ["~> 1.5"])
+    s.add_dependency(%q<json_pure>, ["~> 1.4"])
+    s.add_dependency(%q<rake>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<soap4r>, [">= 1.5.8"])
     s.add_dependency(%q<json_pure>, [">= 1.4.6"])
   end
