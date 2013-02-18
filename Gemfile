@@ -6,3 +6,8 @@ gem "json_pure", "~>1.4"
 group :test do
   gem "test-unit"
 end
+
+group :development do
+  gem "rake"
+  gem "jeweler"
+end
