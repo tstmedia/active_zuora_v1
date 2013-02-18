@@ -1,4 +1,8 @@
-== ActiveZoura
+== Active Zuora Version 2
+* This fork has been moved from its {original location}[https://github.com/anfleene/active_zuora] to its {current location}[https://github.com/tstmedia/active_zuora_v1]
+* The Active Zuora Version 2 gem can be found at https://github.com/tstmedia/active_zuora.
+
+== Active Zoura Version 1
 
 Client for Zuora API
 
@@ -7,6 +11,8 @@ This is a wrapper for sample code provided by {Zuora}[http://developer.zuora.com
 This is a fork of the Zuora4r Gem that has started to develop a mind of its own.
 The fork is adding a new interface to the gem along with removing parts deemed unnecessary.
 The underlying implementation of the zuora4r gem is still in place but that is going to change in the future.
+
+
 
 == Installing the Gem
     $ sudo gem sources -a http://gemcutter.org
