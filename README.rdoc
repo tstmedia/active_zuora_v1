@@ -1,36 +1,3 @@
-== Active Zuora Version 2
-* This fork has been moved from its {original location}[https://github.com/anfleene/active_zuora] to its {current location}[https://github.com/tstmedia/active_zuora_v1]
-* The Active Zuora Version 2 gem can be found at https://github.com/tstmedia/active_zuora.
+== This Repository Has Moved
 
-== Active Zoura Version 1
-
-Client for Zuora API
-
-This is a wrapper for sample code provided by {Zuora}[http://developer.zuora.com/samplecode.html]
-
-This is a fork of the Zuora4r Gem that has started to develop a mind of its own.
-The fork is adding a new interface to the gem along with removing parts deemed unnecessary.
-The underlying implementation of the zuora4r gem is still in place but that is going to change in the future.
-
-
-
-== Installing the Gem
-    $ sudo gem sources -a http://gemcutter.org
-    $ sudo gem install active_zuora
-
-== Future Releases
-
-In the short term this gem will hold on to most of the existing zuora api code with more active recordy style additions to its interface
-In the long term the underlying implementation will be refactored and condensed into something smaller and more idiomatic
-
-=== Important Missing Features
-
-Completion of active zuora's CRUD actions on instance methods
-Support for Zuora's queryMore api call
-
-Remove weird error handling Anti Pattern that rescues and prints all Exceptions
-
-BUG:
-  Auto quote where calls
-
-
+No new commits will be made here. Visit {sportngin/active_zuora_v1}[https://github.com/sportngin/active_zuora_v1] for the latest work on this project.
